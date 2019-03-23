@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1553382706 source:e:\estudio\programación\utn\programación i\clonado de github\programacion_i\clase1ejercicio3\main.c
+	<stdio.h>
+	<stdlib.h>
+	<wchar.h>
+	<locale.h>
+
