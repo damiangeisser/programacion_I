@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1553083032 source:d:\clase 1 dg\laboratorio0320\main.c
+	<stdio.h>
+	<stdlib.h>
+	<wchar.h>
+	<locale.h>
+
+1553091847 source:d:\dg\laboratorio0320\main.c
+	<stdio.h>
+	<stdlib.h>
+

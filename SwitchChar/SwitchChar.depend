@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1553092605 source:d:\clase 1 dg\switchchar\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1553092893 source:d:\dg\switchchar\main.c
+	<stdio.h>
+	<stdlib.h>
+

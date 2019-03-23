@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1553083302 source:d:\clase 1 dg\pruebas\main.c
+	<stdio.h>
+	<stdlib.h>
+	<wchar.h>
+	<locale.h>
+
