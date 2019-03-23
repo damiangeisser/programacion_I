@@ -1,16 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <wchar.h>//Permite el uso de diferentes tipos de caracter.
-#include <locale.h>//Permite el uso de diferentes formatos de fecha, monedas, etc.
+#include <wchar.h>//Permite el uso de caracteres de otros idiomas.
+#include <locale.h>//Permite el uso de símbolos de monedas y otros.
+
+//Parcial ingreso, ejercicio 1.
 
 void main(void)
 {
     int ancho;
-    int largo;
+    int alto;
 
-    setlocale(LC_ALL, "");//Permite imprimir caracteres que no son estandar.
+    setlocale(LC_ALL, "");//Activa el uso de caracteres latinos
 
-    printf("Por favor ingrese el ancho del rectángulo a calcular y presione enter: \n");
+    printf("Por favor ingrese el ancho del rectángulo en cm. y presione enter: \n");
 
-    scanf("%d", ancho);
+    scanf("%d", &ancho);
+
+    printf("Por favor ingrese el alto del rectángulo en cm. y presione enter: \n");
+
+    scanf("%d", &alto);
+
+    printf("El área del rectángulo es %d cm2", ancho*alto);
+
 }

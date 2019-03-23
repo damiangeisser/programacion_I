@@ -1,29 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>//para trabajar con tipos de datos, incluye toupper tolower
-//#include <wchar.h>//Permite el uso de caracteres de otros idiomas.
-//#include <locale.h>//Permite el uso de símbolos de monedas y otros.
-
-//Parcial ingreso, ejercicio 1.
-
-//void main(void)
-//{
-//    int ancho;
-//    int alto;
-//
-//    setlocale(LC_ALL, "");
-//
-//    printf("Por favor ingrese el ancho del rectángulo y presione enter: \n");
-//
-//    scanf(" %d ", &ancho);
-//
-//    printf("Por favor ingrese el alto del rectángulo y presione enter: \n");
-//
-//    scanf(" %d ", &alto);
-//
-//    printf("El área del rectángulo es %d ", ancho*alto);
-//
-//}
 
 //void main(void)
 //{
@@ -40,16 +17,14 @@
 
 //int main()//La función devuleve un entero, no tiene punteros entre los paréntesis.
 //{
-//
 //    int i = 0;//Conviene inicializarlo en cero para poder recorrer vectores.
 //
 ////    while(i < 10)
 ////    {
-////
 ////        i++;
-////        printf( " %d \n", i);
+////        printf( "%d \n", i);
 ////
-//////        printf( " %d \n", (i+1);//Alternativa.
+//////        printf( "%d \n", (i+1);//Alternativa.
 //////        i++;
 ////
 ////
@@ -72,14 +47,13 @@
 
 int main()//La función devuleve un entero, no tiene punteros entre los paréntesis.
 {
-
-    //Switch sólo soporta como valores números enteros o caracteres 'a'
-
-    //Un contador cuenta ocurrencias (incrementándose de fomar constante) y debe estar inicializada en 0
-
-    //Un acumulador es una suma de variables y debe estar incializado en 0
-
-    //En máximos y mínimos las variables no se inicializan y se les asigna la primera ocurrencia.
+//    Switch sólo soporta como valores números enteros o caracteres 'a'
+//
+//    Un contador cuenta ocurrencias (incrementándose de fomar constante) y debe estar inicializada en 0
+//
+//    Un acumulador es una suma de variables y debe estar incializado en 0
+//
+//    En máximos y mínimos las variables no se inicializan y se les asigna la primera ocurrencia.
 
     int valor, min, max, flag=0;
 
@@ -112,3 +86,30 @@ int main()//La función devuleve un entero, no tiene punteros entre los paréntesi
 
     return 0;//Retorno de la función, obligado.
 }
+
+//#include <limits.h>//Permite utilizar el valor máximo y mínimo capaz de ser almacenado en el tipo de variable.
+
+//void main(void)
+//{
+//    int i;
+//    int suma = 0;
+//    int max = INT_MIN; // constante definida en limits.h
+//    int min = INT_MAX; // constante definida en limits.h
+//    for(i=0; i<10; i++)
+//    {
+//        int aux;
+//        scanf("%d",&aux);
+//        suma=suma+aux;
+//        if(aux>max)
+//        {
+//            max = aux;
+//        }
+//        if(aux<min)
+//        {
+//            min = aux;
+//        }
+//    }
+//    printf("la suma es:%d\n",suma);
+//    printf("El maximo es:%d\n",max);
+//    printf("El minimo es:%d\n",min);
+//}
