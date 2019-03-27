@@ -6,22 +6,37 @@ int main()
 
     int valor,result;
 
-    printf("\nIngrese numero:");
+    printf("\nIngrese numero: ");
     scanf("%d",&valor);
     result=factorial(valor);
-    printf("\nEl factorial de %d es %d",valor,result);
 
+    if(result==-1)
+    {
+
+        printf("\nError - El numero del que se desea el factorial debe ser mayor a 0\n");
+    }
+    else
+    {
+        printf("\nEl factorial de %d es %d\n",valor,result);
+    }
     return 0;
 }
 
 int factorial(int n)
 {
     int resp;
-    resp = 1;
-    for(n; n>1; n--)
-    {
-        resp = resp * n;
-    }
 
+    if(n>0)
+    {
+        resp=1;
+        for(n; n>1; n--)
+        {
+            resp = resp * n;
+        }
+    }
+    else
+    {
+        resp=-1;
+    }
     return resp;
 }
