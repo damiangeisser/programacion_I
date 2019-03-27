@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1553686147 source:d:\dg\programacion_i\tarea2303\main.c
+	<stdio.h>
+	<stdlib.h>
+	<wchar.h>
+	<locale.h>
+
