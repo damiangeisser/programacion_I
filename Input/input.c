@@ -23,8 +23,8 @@ int getInt(int* input,char message[],char eMessage[], int lowLimit, int hiLimit)
     while(valor < lowLimit || valor > hiLimit)
     {
 
-        printf("%s\n", eMessage);
-        printf("%s ", message);
+        printf("\n%s\n", eMessage);
+        printf("\n%s ", message);
         scanf("%d", &valor);
     }
 
@@ -55,8 +55,8 @@ int getFloat(float* input,char message[],char eMessage[], float lowLimit, float 
     while(valor < lowLimit || valor > hiLimit)
     {
 
-        printf("%s\n", eMessage);
-        printf("%s ", message);
+        printf("\n%s\n", eMessage);
+        printf("\n%s ", message);
         scanf("%f", &valor);
     }
 
@@ -79,27 +79,29 @@ int getFloat(float* input,char message[],char eMessage[], float lowLimit, float 
 */
 int getChar(char* input,char message[],char eMessage[], char lowLimit, char hiLimit)
 {
-//    char valor;
-//    int error = -1;
-//
-//    printf("%s ", message);
-//    scanf("%c", &valor);
-//
-//    while(valor < lowLimit || valor > hiLimit)
-//    {
-//
-//        printf("%s\n", eMessage);
-//        printf("%s ", message);
-//        scanf("%c", &valor);
-//    }
-//
-//    *input = valor;
-//    error = 0;
-//
-//    return error;
+    char valor;
+    int error = -1;
 
-    *input = 'S';
-    return 0;
+    printf("%s ", message);
+    fflush(stdin);
+    scanf("%c", &valor);
+
+    while(valor < lowLimit || valor > hiLimit)
+    {
+
+        printf("\n%s\n", eMessage);
+        printf("\n%s ", message);
+        fflush(stdin);
+        scanf("%c", &valor);
+    }
+
+    *input = valor;
+    error = 0;
+
+    return error;
+
+    //*input = 'S';
+    //return 0;
 }
 
 
