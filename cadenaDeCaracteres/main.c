@@ -7,9 +7,9 @@ int main()
 
     char cadena[50];
 
-    int vec1[3]:{-1,2,10};
+    char vec1[3];
 
-    int vec2[5]:{-3,2,4,15,18};
+    char vec2[5];
 
 
     fflush(stdin);
@@ -36,8 +36,11 @@ int main()
 
     printf("\n%s\n\n", cadena);
 
+    strcmp(vec1, vec2);//Case sensitive. Devuelve 0 si vec1 == vec2, >0 si vec1 > vec2, <0 si vec1 < vec2 Compara los valores ASCII
 
+    stricmp(vec1, vec2);//No es case sensitive.
 
+    strcpy(vec1, vec2);//Copia el contenido del segundo parámetro se copia en el primero. El segundo puede ser variable, constante o cadena literal.
 
     return 0;
 }
