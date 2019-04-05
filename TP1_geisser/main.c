@@ -96,6 +96,8 @@ int main()
                 if(errorDiv)
                 {
                     printf("\nNo es posible dividir por cero.\n");
+                    //Reinicio la bandera de error.
+                    errorDiv = 0;
                 }
                 else
                 {
@@ -109,6 +111,8 @@ int main()
                 if(errorFactor1)
                 {
                     printf("\nNo fue posible calcular el factorial del primer operando, debe ser mayor o igual a 1 ");
+                    //Reinicio la bandera de error.
+                    errorFactor1 = 0;
                 }
                 else
                 {
@@ -120,6 +124,8 @@ int main()
                 if(errorFactor2)
                 {
                     printf("y no fue posible calcular el factorial del segundo operando, debe ser mayor o igual a 1\n");
+                    //Reinicio la bandera de error.
+                    errorFactor2 = 0;
                 }
                 else
                 {
@@ -130,7 +136,7 @@ int main()
                 //Reinicio de las variables.
                 operandoUno = 0;
                 operandoDos = 0;
-                //Reinicio la bandera de las operaciones.
+                //Reinicio la bandera de las operaciones realizadas.
                 mostrarOk = 0;
             }
             else
