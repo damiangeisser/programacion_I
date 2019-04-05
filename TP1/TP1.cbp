@@ -31,6 +31,8 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Untitled1.cu" />
+		<Unit filename="Untitled2" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
