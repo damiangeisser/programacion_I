@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <wchar.h>//Permite el uso de caracteres latinos.
-#include <locale.h>//Permite el uso de caracteres latinos.
 #include "geisser.h"
 
 float sumar(float sumando1, float sumando2);
@@ -26,11 +24,9 @@ int main()
     int errorFactor2 = 0;
     int mostrarOk = 0;
 
-    setlocale(LC_ALL, "");//Activa el uso de caracteres latinos.
-
     do
     {
-        printf("\nPor favor elija la acción a realizar y presione enter:\n\n1 - Ingresar el primer operando.\n\n2 - Ingresar el segundo operando.\n\n3 - Realizar todas las operaciones.\n\n4 - Mostrar los resultados.\n\n5 - Salir.\n\n");
+        printf("\nPor favor elija la accion a realizar y presione enter:\n\n1 - Ingresar el primer operando.\n\n2 - Ingresar el segundo operando.\n\n3 - Realizar todas las operaciones.\n\n4 - Mostrar los resultados.\n\n5 - Salir.\n\n");
 
         scanf("%d", &opcion);
 
@@ -116,7 +112,7 @@ int main()
                 }
                 else
                 {
-                    printf("\nEl factorial de %0.f es: %d ", operandoUno, rtaFactor1);
+                    printf("\nEl factorial de %d es: %d ", (int)operandoUno, rtaFactor1);
                 }
                 //Fin mensajes del 1er factorial.
 
@@ -127,7 +123,7 @@ int main()
                 }
                 else
                 {
-                    printf("y el factorial de %0.f es: %d\n", operandoDos, rtaFactor2);
+                    printf("y el factorial de %d es: %d\n", (int)operandoDos, rtaFactor2);
                 }
                 //Fin mensajes del 2do factorial.
 
@@ -139,14 +135,14 @@ int main()
             }
             else
             {
-                printf("\n(!) Debe elegir previamente la opción 3\npara obtener los resultados a mostrar (!)\n\n");
+                printf("\n(!) Debe elegir previamente la opcion 3\npara obtener los resultados a mostrar (!)\n\n");
             }
             break;
         case 5:
             printf("\n----- Programa finalizado -----\n\n");
             break;
         default:
-            printf("\n(!) %d no es una opción válida (!)\n\n", opcion);
+            printf("\n(!) %d no es una opcion valida (!)\n\n", opcion);
         }
 
 
