@@ -117,11 +117,24 @@ int getChar(char* input,char message[],char eMessage[], char lowLimit, char hiLi
 */
 int getString(char* input,char message[],char eMessage[], int lowLimit, int hiLimit)
 {
-    //.........
-    //.........
-    //.........
-    //.........
+    char valor[50];
+    int error = -1;
 
-    strcpy(input,"Sheldon");
-    return 0;
+    printf("%s ", message);
+    fflush(stdin);
+    scanf("%s", valor);
+
+    while(strlen(valor) < lowLimit || strlen(valor) > hiLimit)
+    {
+        printf("\n%s\n", eMessage);
+        printf("\n%s ", message);
+        fflush(stdin);
+        scanf("%s", &valor);
+    }
+
+    strcpy(input,valor);
+
+    error = 0;
+
+    return error;
 }

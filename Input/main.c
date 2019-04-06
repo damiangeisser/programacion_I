@@ -31,8 +31,8 @@ int main()
         printf("\nOpcion: %c\n\n",continuar);
 
 
-    // EJEMPLO DE USO DE getChar
-    r = getString(nombre,"Nombre: ","El largo debe ser entre 2 y 50", 2, 50);
+    // EJEMPLO DE USO DE getString
+    r = getString(nombre,"Ingrese su nombre: ","El largo debe ser entre 2 y 50", 2, 50);
     if(r == 0)
         printf("\nNombre: %s\n",nombre);
 
