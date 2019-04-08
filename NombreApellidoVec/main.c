@@ -5,22 +5,22 @@
 
 int main()
 {
-    char nombre[20];
-    char apellido[20];
+    char nombre[5];
+    char apellido[5];
     char nombreCompleto[41];// 19 + 19 + 2(coma y espacio) + 1 (terminador)
     //char espaciador[3]={',',' '}; No es necesario.
 
     printf("Ingrese su nombre: ");
 
-    gets(nombre);
+    //gets(nombre);
 
-    //ingresarString(nombre, strlen(nombre));
+    validarString(nombre, strlen(nombre));
 
     printf("Ingrese su apellido: ");
 
-    gets(apellido);
+    //gets(apellido);
 
-    //ingresarString(apellido, strlen(apellido));
+    validarString(apellido, strlen(apellido));
 
     //strlwr(nombre);
     //strlwr(apellido);
@@ -43,7 +43,7 @@ int main()
         }
     }
 
-//    printf("Su nombre es: ");
+//    printf("Su nombre es: ");//
 //
 //    for(int i=0; i < strlen(nombreCompleto);i++)
 //    {
@@ -55,22 +55,22 @@ puts(nombreCompleto);//Imprime
     return 0;
 }
 
-//int ingresarString(char* dirVector, int largo)
-//{
+int validarString(char* dirVector, int largo)
+{
 //char vecIngreso[largo];
-//char auxVec[largo*5];
-//
-//gets(auxVec);
-//
-//while(strlen(auxVec)>strlen(vecIngreso))
-//{
-//    printf("Error. Escriba nuevamente");
-//    gets(auxVec);
-//}
-//strcpy(vecIngreso,auxVec);
-//
-//dirVector=vecIngreso;
-//
-//return 0;
-//}
+char auxVec[largo*5];
+
+gets(auxVec);
+
+while(strlen(auxVec)>strlen(vecIngreso))
+{
+    printf("Error. Escriba nuevamente.\n");
+    gets(auxVec);
+}
+strcpy(vecIngreso,auxVec);
+
+//dirVector = vecIngreso;
+
+return 0;
+}
 
