@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 struct datosPersonales //Palabra reservada struct crea una estructura. Se crea debajo de los directivas del preprocesador.
 {
@@ -7,6 +8,7 @@ struct datosPersonales //Palabra reservada struct crea una estructura. Se crea d
     char apellido[20];//Campo apellido.
     char calle[20];//Campo calle.
     int numero;//Campo numero.
+    int codigoPostal;
 };//Se cierra con llave y punto y coma.
 
 int main()
@@ -14,16 +16,37 @@ int main()
 
     struct datosPersonales agenda;//Declaración de la variable agenda del tipo struct datosPersonales.
 
-    strcpy(agenda.nombre, "Yanina");//Hardcoding del nombre a través del operador punto.
-    strcpy(agenda.apellido, "Scudero");
-    strcpy(agenda.calle, "Avenida Mitre");
-    agenda.numero = 750;
+//    strcpy(agenda.nombre, "Yanina");//Hardcoding del nombre a través del operador punto.
+//    strcpy(agenda.apellido, "Scudero");
+//    strcpy(agenda.calle, "Avenida Mitre");
+//    agenda.numero = 750;
 
-//    printf("El nombre es: %s\n", agenda.nombre);
-//    printf("El apellido es: %s", agenda.apellido);
+    printf("Ingrese el nombre: ");
+    gets(agenda.nombre);
+    fflush(stdin);
 
-    printf("Nombre\tApellido\n\n");
-    printf("%s\t%s\n\n", agenda.nombre, agenda.apellido);
+    printf("Ingrese el apellido: ");
+    gets(agenda.apellido);
+    fflush(stdin);
+
+    printf("Ingrese el nombre de la calle: ");
+    gets(agenda.calle);
+    fflush(stdin);
+
+    printf("Ingrese el numero de la calle: ");
+    scanf("%d", &agenda.numero);
+
+    printf("Ingrese el codigo postal: ");
+    scanf("%d", &agenda.codigoPostal);
+
+    printf("\nEl nombre es: %s\n", agenda.nombre);
+    printf("El apellido es: %s\n", agenda.apellido);
+    printf("La calle es: %s\n", agenda.calle);
+    printf("El numero es: %d\n", agenda.numero);
+    printf("El codigo postal es: %d\n", agenda.codigoPostal);
+
+//    printf("Nombre\tApellido\n\n");
+//    printf("%s\t%s\n\n", agenda.nombre, agenda.apellido);
 
     return 0;
 }
