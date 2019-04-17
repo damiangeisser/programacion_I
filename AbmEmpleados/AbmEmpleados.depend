@@ -6,10 +6,11 @@
 	<conio.h>
 	"empleados.h"
 
-1555507321 d:\dg\programacion_i\abmempleados\empleados.h
+1555514283 d:\dg\programacion_i\abmempleados\empleados.h
 
-1555507061 source:d:\dg\programacion_i\abmempleados\empleados.c
+1555507972 source:d:\dg\programacion_i\abmempleados\empleados.c
 	<stdio.h>
+	<stdlib.h>
 	<ctype.h>
 	<conio.h>
 	"empleados.h"
