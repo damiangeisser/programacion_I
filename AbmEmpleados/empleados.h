@@ -5,6 +5,11 @@ typedef struct
     int anio;
 } eFecha;
 
+typedef struct{//Tipo de dato tipificado.
+int id;
+char desc[31];
+}eSector;
+
 typedef struct
 {
 
@@ -14,7 +19,15 @@ typedef struct
     float sueldo;
     int ocupado;
     eFecha fechaNac;
+    int idSector;
 } eEmpleado;
+
+/** \brief Muestra un switch que debe ser modificado desde la función. Pide un int que guarda en la variable opcion.
+ *
+ * \param No recibe parámetros.
+ * \return
+ *
+ */
 
 int menu();
 void inicializarEmpleados(eEmpleado vec[], int tam);

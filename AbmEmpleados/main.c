@@ -72,6 +72,40 @@ int main()
     return 0;
 }
 
+//void listarPorSector(vectorSectores[], int largoVectorSectores)
+//{
+//    for(int i=0; i<largoVectorSectores; i++)
+//    {
+//        for(j=0; j<largoVectorEmpleados; j++){
+//            if(variableSectorUsuario==vectorSectores[i].id && vectorSectores[i].id==emp[i].idSector)
+//            {
+//                printf("Empleado y sector con las variables");
+//            }
+//        }
+//    }
+
+void ordenarEmpleadosAZ(lista, TAM)
+{
+    eEmpleado auxEmp;
+
+    for(int i=0; i<TAM-1; i++)
+    {
+        for(j=0; j<TAM; j++)
+        {
+            if(strcmp(lista[i].nombre, lista[j].nombre)>0)
+            {
+                auxEmp = lista[i];
+                lista[j] = lista[i];
+                lista[j] = auxEmp;
+            }
+        }
+    }
+
+}
+
+
+
+}
 
 
 
