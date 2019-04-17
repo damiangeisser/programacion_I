@@ -1,6 +1,17 @@
 # depslib dependency file v1.0
-1555339997 source:d:\dg\programacion_i\abmempleados\main.c
+1555506508 source:d:\dg\programacion_i\abmempleados\main.c
 	<stdio.h>
 	<stdlib.h>
+	<ctype.h>
 	<conio.h>
+	"empleados.h"
+
+1555505199 d:\dg\programacion_i\abmempleados\empleados.h
+
+1555506380 source:d:\dg\programacion_i\abmempleados\empleados.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	"empleados.h"
 

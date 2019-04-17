@@ -171,7 +171,6 @@ int indice;
 int legajo;
 int esta;
 
-
 indice = buscarLibre(vec, tam);
 
 if( indice == -1){
