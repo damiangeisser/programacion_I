@@ -5,7 +5,8 @@ typedef struct
     int anio;
 } eFecha;
 
-typedef struct{//Tipo de dato tipificado.
+
+typedef struct{// tipo de dato tipificado.
 int id;
 char desc[31];
 }eSector;
@@ -37,3 +38,4 @@ int buscarLibre(eEmpleado vec[], int tam);
 int buscarEmpleado(eEmpleado vec[], int tam, int legajo);
 void altaEmpleado(eEmpleado vec[], int tam);
 void bajaEmpleado(eEmpleado vec[], int tam);
+void ordenarEmpleadosAZ(eEmpleado vec[], int tam);

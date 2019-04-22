@@ -2,12 +2,12 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <conio.h>
+#include <string.h>
 
 #include "empleados.h"
 
 void inicializarEmpleados(eEmpleado vec[], int tam)
 {
-
     for(int i=0; i < tam; i++)
     {
         vec[i].ocupado = 0;
@@ -19,7 +19,7 @@ int menu()
     int opcion;
 
     system("cls");
-    printf("  *** ABM Empleados ***\n\n");
+    printf("  --- ABM Empleados ---\n\n");
     printf("1- Alta Empleado\n");
     printf("2- Baja Empleado\n");
     printf("3- Modificacion Empleado\n");
@@ -43,7 +43,8 @@ void mostrarEmpleados(eEmpleado vec[], int tam)
 {
     int contador = 0;
 
-    printf("Legajo\tNombre\tSexo\tSueldo\t\tFecha de nacimiento\n");
+    printf("\nLegajo\tNombre\tSexo\tSueldo\t\tFecha de nacimiento\n");
+
     for(int i=0; i < tam; i++)
     {
         if(vec[i].ocupado == 1)
@@ -105,7 +106,7 @@ void altaEmpleado(eEmpleado vec[], int tam)
     if( indice == -1)
     {
 
-        printf("\nNo hay lugar en el sistema\n");
+        printf("\nNo hay lugar en el sistema\n\n");
     }
     else
     {
@@ -116,7 +117,7 @@ void altaEmpleado(eEmpleado vec[], int tam)
 
         if( esta != -1)
         {
-            printf("Existe un empleado de legajo %d en el sistema\n", legajo);
+            printf("Existe un empleado de legajo %d en el sistema\n\n", legajo);
             mostrarEmpleado(vec[esta]);
         }
         else
@@ -146,7 +147,7 @@ void altaEmpleado(eEmpleado vec[], int tam)
 
             vec[indice].ocupado = 1;
 
-            printf("Alta empleado exitosa!!!\n\n");
+            printf("\nEmpleado dado de alta exitosamente.\n\n");
         }
 
     }
@@ -158,7 +159,7 @@ void bajaEmpleado(eEmpleado vec[], int tam)
     int indice;
     char baja;
 
-    printf("\nIngrese legajo del empleado a dar de baja: \n");
+    printf("\nIngrese legajo del empleado a dar de baja: ");
     scanf("%d", &legajo);
 
     indice = buscarEmpleado(vec, tam, legajo);
@@ -166,7 +167,7 @@ void bajaEmpleado(eEmpleado vec[], int tam)
     if( indice == -1)
     {
 
-        printf("\nNo existe un empleado con ese legajo.\n");
+        printf("\nNo existe un empleado con ese legajo.\n\n");
     }
     else
     {
@@ -176,7 +177,7 @@ void bajaEmpleado(eEmpleado vec[], int tam)
         if(tolower(baja)=='s')
         {
             vec[indice].ocupado=0;
-            printf("\nEmpleado dado de baja.\n");
+            printf("\nEmpleado dado de baja exitosamente.\n\n");
         }
     }
 
@@ -188,14 +189,14 @@ void modificarEmpleado(eEmpleado vec[], int tam)
     int indice;
     char baja;
 
-    printf("\nIngrese legajo del empleado a modificar: \n");
+    printf("\nIngrese legajo del empleado a modificar: ");
     scanf("%d", &legajo);
 
     indice = buscarEmpleado(vec, tam, legajo);
 
     if( indice == -1)
     {
-        printf("\nNo existe un empleado con ese legajo.\n");
+        printf("\nNo existe un empleado con ese legajo.\n\n");
     }
     else
     {
@@ -204,10 +205,28 @@ void modificarEmpleado(eEmpleado vec[], int tam)
         baja = getche();
         if(tolower(baja)=='s')
         {
-            printf("\nIngrese el nuevo sueldo:\n");
+            printf("\nIngrese el nuevo sueldo: ");
             scanf("%f",&vec[indice].sueldo);
-            printf("\nSueldo modificado exitosamente.\n");
+            printf("\nSueldo modificado exitosamente.\n\n");
         }
     }
 }
+//-----------------------------------------------------------
+void ordenarEmpleadosAZ(eEmpleado vec[], int tam)
+{
+    eEmpleado auxEmp;
 
+    for(int i=0; i<TAM-1; i++)
+    {
+        for(int j=i+1; j<TAM; j++)
+        {
+            if(strcmp(vec[i].nombre, vec[j].nombre)>0)//si las cadenas son iguales retornara 0, si la primera es mayor retornara un valor positivo y si es menor retornara un valor negativo.
+            {
+                auxEmp = vec[i];
+                vec[i] = vec[j];
+                vec[j] = auxEmp;
+            }
+        }
+    }
+
+}

@@ -15,3 +15,19 @@
 	<conio.h>
 	"empleados.h"
 
+1555926822 source:e:\estudio\programación\utn\programación i\clonado de github\programacion_i\abmempleados\empleados.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	"empleados.h"
+
+1555926257 e:\estudio\programación\utn\programación i\clonado de github\programacion_i\abmempleados\empleados.h
+
+1555927411 source:e:\estudio\programación\utn\programación i\clonado de github\programacion_i\abmempleados\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	"empleados.h"
+

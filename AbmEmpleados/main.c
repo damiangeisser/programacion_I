@@ -2,17 +2,19 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <conio.h>
+#include <string.h>
 
 #include "empleados.h"
 
-#define TAM 2
+#define TAM 3
 
 int main()
 {
     char seguir = 's';
     char confirma;
-    eEmpleado lista[TAM];//={{1234, "Juan", 'm', 30000, 1},{2222, "Ana", 'f', 32000, 1}, {2211, "Jorge", 'm', 28000, 0}};
-    inicializarEmpleados(lista, TAM);
+    //eEmpleado lista[TAM];
+    eEmpleado lista[]= {{1234, "Juan", 'm', 30000, 1},{2222, "Ana", 'f', 32000, 1}, {2211, "Jorge", 'm', 28000, 1}};
+    //inicializarEmpleados(lista, TAM);
 
 
     do
@@ -21,42 +23,41 @@ int main()
         {
 
         case 1:
-            //printf("\nAlta empleado\n\n");
+
             altaEmpleado(lista, TAM);
             system("pause");
             break;
 
         case 2:
-            //printf("\nBaja empleado\n\n");
+
             bajaEmpleado(lista, TAM);
             system("pause");
             break;
 
         case 3:
-            //printf("\nModificacion empleado\n\n");
             modificarEmpleado(lista,TAM);
             system("pause");
             break;
 
         case 4:
-            printf("\nOrdenar empleados\n\n");
+
+            ordenarEmpleadosAZ(lista,TAM);
             system("pause");
             break;
 
         case 5:
-            //printf("\nListar empleados\n\n");
             mostrarEmpleados(lista, TAM);
             system("pause");
             break;
 
         case 6:
-            printf("\nConfirma salida s/n?: ");
+            printf("\nConfirma la salida del programa s/n?: ");
             fflush(stdin);
             confirma = getche();
 
             if( tolower(confirma) == 's')
             {
-                printf("\n\n- Programa finalizado. -\n");
+                printf("\n\n- Programa finalizado -\n");
                 seguir = 'n';
             }
             break;
@@ -64,7 +65,6 @@ int main()
         default:
             printf("\n Opcion invalida\n\n");
             system("pause");
-            //system("break");
         }
     }
     while(seguir == 's');
@@ -84,24 +84,7 @@ int main()
 //        }
 //    }
 
-void ordenarEmpleadosAZ(lista, TAM)
-{
-    eEmpleado auxEmp;
 
-    for(int i=0; i<TAM-1; i++)
-    {
-        for(j=0; j<TAM; j++)
-        {
-            if(strcmp(lista[i].nombre, lista[j].nombre)>0)
-            {
-                auxEmp = lista[i];
-                lista[j] = lista[i];
-                lista[j] = auxEmp;
-            }
-        }
-    }
-
-}
 
 
 
