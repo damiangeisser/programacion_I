@@ -8,6 +8,21 @@
 
 #define TAM 3
 
+typedef struct
+{
+    int dia;
+    int mes;
+    int anio;
+} eFecha;
+
+
+typedef struct{// tipo de dato tipificado.
+int id;
+char desc[20];
+}eSector;
+
+void obtenerSector(eSector sectores[], int tamSectores, int idSectorEmp, char descMostrar[]);
+
 int main()
 {
     char seguir = 's';
@@ -16,6 +31,7 @@ int main()
     eEmpleado lista[]= {{1234, "Juan", 'm', 30000, 1},{2222, "Ana", 'f', 32000, 1}, {2211, "Jorge", 'm', 28000, 1}};
     //inicializarEmpleados(lista, TAM);
 
+    eSector listaSectores[]={{1, "Sistemas"},{2, "RR HH"},{3,"Legales"},{4, "Ventas"}};
 
     do
     {
@@ -71,6 +87,19 @@ int main()
 
     return 0;
 }
+
+void obtenerSector(eSector sectores[], int tamSectores, int idSectorEmp, char descMostrar[])
+{
+    for(int i=0; i<tamSectores; i++){
+        if(idSectorEmp == sectores.id){
+            strcpy(descMostrar,sectores[i].desc);
+        }
+    }
+
+
+
+}
+
 
 //void listarPorSector(vectorSectores[], int largoVectorSectores)
 //{

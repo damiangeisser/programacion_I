@@ -1,15 +1,4 @@
-typedef struct
-{
-    int dia;
-    int mes;
-    int anio;
-} eFecha;
 
-
-typedef struct{// tipo de dato tipificado.
-int id;
-char desc[31];
-}eSector;
 
 typedef struct
 {
@@ -32,10 +21,10 @@ typedef struct
 
 int menu();
 void inicializarEmpleados(eEmpleado vec[], int tam);
-void mostrarEmpleado(eEmpleado emp);
-void mostrarEmpleados(eEmpleado vec[], int tam);
+void mostrarEmpleado(eSector sectores[], int tamSectores, eEmpleado emp)
+void mostrarEmpleados(eSector sectores[], int tamSectores, eEmpleado vec[], int tam)
 int buscarLibre(eEmpleado vec[], int tam);
 int buscarEmpleado(eEmpleado vec[], int tam, int legajo);
-void altaEmpleado(eEmpleado vec[], int tam);
-void bajaEmpleado(eEmpleado vec[], int tam);
+void altaEmpleado(eSector sectores[], int tamSectores, eEmpleado vec[], int tam);
+void bajaEmpleado(eSector sectores[], int tamSectores, eEmpleado vec[], int tam)
 void ordenarEmpleadosAZ(eEmpleado vec[], int tam);

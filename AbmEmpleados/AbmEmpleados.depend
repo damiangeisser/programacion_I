@@ -1,18 +1,20 @@
 # depslib dependency file v1.0
-1555506797 source:d:\dg\programacion_i\abmempleados\main.c
+1555939388 source:d:\dg\programacion_i\abmempleados\main.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
 	<conio.h>
+	<string.h>
 	"empleados.h"
 
-1555514283 d:\dg\programacion_i\abmempleados\empleados.h
+1555940290 d:\dg\programacion_i\abmempleados\empleados.h
 
-1555507972 source:d:\dg\programacion_i\abmempleados\empleados.c
+1555940215 source:d:\dg\programacion_i\abmempleados\empleados.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
 	<conio.h>
+	<string.h>
 	"empleados.h"
 
 1555926822 source:e:\estudio\programación\utn\programación i\clonado de github\programacion_i\abmempleados\empleados.c
