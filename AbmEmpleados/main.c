@@ -47,6 +47,7 @@ void ordenarEmpleadosAZ(eEmpleado vec[], int tam);
 void obtenerSector(eSector sectores[], int tamSectores, int idSectorEmp, char descMostrar[]);
 //void mostrarSector(eSector sectores[], int tamSectores);
 void mostrarSectores(eSector sectores[], int tamSectores);
+void censoSectores(eSector sectores[], int tamSectores, eEmpleado vec[], int tamEmp);
 
 int main()
 {
@@ -96,12 +97,15 @@ int main()
             system("pause");
             break;
 
-            case 7:
+        case 7:
             mostrarSectoresConEmpleados(listaSectores, TAM_SEC, lista, TAM);
             system("pause");
             break;
-
         case 8:
+            censoSectores(listaSectores, TAM_SEC, lista, TAM);
+            system("pause");
+            break;
+        case 9:
             printf("\nConfirma la salida del programa s/n?: ");
             fflush(stdin);
             confirma = getche();
@@ -146,7 +150,8 @@ int menu()
     printf("5- Listar Empleados\n");
     printf("6- Listar Sectores\n");
     printf("7- Listar Sectores Con Empleados\n");
-    printf("8- Salir\n\n");
+    printf("8- Listar Cantidad Empleados Por Sector\n");
+    printf("9- Salir\n\n");
     printf("Ingrese opcion: ");
     scanf("%d", &opcion);
 
@@ -422,7 +427,25 @@ void mostrarSectoresConEmpleados(eSector sectores[], int tamSectores, eEmpleado 
 //-----------------------------------------------------------
 void censoSectores(eSector sectores[], int tamSectores, eEmpleado vec[], int tamEmp)
 {
+    int contador;
 
+
+    for(int i =0; i<tamSectores; i++)
+    {
+        contador=0;
+        printf("%s\n----------\n", sectores[i].desc);
+        for(int j=0; j<tamEmp; j++ )
+        {
+            if(vec[j].idSector==sectores[i].id && vec[j].ocupado==1)
+            {
+                contador++;
+            }
+            printf("%d empleados", contador);
+
+        }
+
+        printf("\n\n");
+    }
 }
 
 
