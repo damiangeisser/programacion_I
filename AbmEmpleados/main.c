@@ -7,7 +7,7 @@
 //#include "empleados.h"
 
 #define TAM 3
-#define TAM_SEC 4
+#define TAM_SEC 5
 
 typedef struct
 {
@@ -23,17 +23,18 @@ typedef struct
     char nombre[20];
     char sexo;
     float sueldo;
-    eFecha fechaNac;
+    eFecha fechaIn;
     int idSector;
     int ocupado;
 } eEmpleado;
 
-typedef struct{// tipo de dato tipificado.
-int id;
-char desc[20];
-}eSector;
+typedef struct // tipo de dato tipificado.
+{
+    int id;
+    char desc[20];
+} eSector;
 
-void obtenerSector(eSector sectores[], int tamSectores, int idSectorEmp, char descMostrar[]);
+
 int menu();
 void inicializarEmpleados(eEmpleado vec[], int tam);
 void mostrarEmpleado(eSector sectores[], int tamSectores, eEmpleado emp);
@@ -43,6 +44,9 @@ int buscarEmpleado(eEmpleado vec[], int tam, int legajo);
 void altaEmpleado(eSector sectores[], int tamSectores, eEmpleado vec[], int tam);
 void bajaEmpleado(eSector sectores[], int tamSectores, eEmpleado vec[], int tam);
 void ordenarEmpleadosAZ(eEmpleado vec[], int tam);
+void obtenerSector(eSector sectores[], int tamSectores, int idSectorEmp, char descMostrar[]);
+//void mostrarSector(eSector sectores[], int tamSectores);
+void mostrarSectores(eSector sectores[], int tamSectores);
 
 int main()
 {
@@ -52,7 +56,7 @@ int main()
     eEmpleado lista[]= {{1234, "Juan", 'm', 30000, 2,10,1980,2, 1},{2222, "Ana", 'f', 32000,25,6,1990,1, 1}, {2211, "Jorge", 'm', 28000,11,12,1973,3, 1}};
     //inicializarEmpleados(lista, TAM);
 
-    eSector listaSectores[]={{1, "Sistemas"},{2, "RR HH"},{3,"Legales"},{4, "Ventas"}};
+    eSector listaSectores[]= {{1, "Sistemas"},{2, "RR HH"},{3,"Compras"},{4,"Ventas"},{5, "Legales"}};
 
     do
     {
@@ -88,6 +92,16 @@ int main()
             break;
 
         case 6:
+            mostrarSectores(listaSectores, TAM_SEC);
+            system("pause");
+            break;
+
+            case 7:
+            mostrarSectoresConEmpleados(listaSectores, TAM_SEC, lista, TAM);
+            system("pause");
+            break;
+
+        case 8:
             printf("\nConfirma la salida del programa s/n?: ");
             fflush(stdin);
             confirma = getche();
@@ -109,18 +123,7 @@ int main()
     return 0;
 }
 
-void obtenerSector(eSector sectores[], int tamSectores, int idSectorEmp, char descMostrar[])
-{
-    for(int i=0; i<tamSectores; i++){
-        if(idSectorEmp == sectores[i].id){
-            strcpy(descMostrar,sectores[i].desc);
-            break;
-        }
-    }
 
-
-
-}
 
 void inicializarEmpleados(eEmpleado vec[], int tam)
 {
@@ -141,7 +144,9 @@ int menu()
     printf("3- Modificacion Empleado\n");
     printf("4- Ordenar Empleados\n");
     printf("5- Listar Empleados\n");
-    printf("6- Salir\n\n");
+    printf("6- Listar Sectores\n");
+    printf("7- Listar Sectores Con Empleados\n");
+    printf("8- Salir\n\n");
     printf("Ingrese opcion: ");
     scanf("%d", &opcion);
 
@@ -154,7 +159,7 @@ void mostrarEmpleado(eSector sectores[], int tamSectores, eEmpleado emp)
 
     obtenerSector(sectores, tamSectores, emp.idSector, descSector);
 
-    printf("%d\t%s\t%c\t%.2f\t%02d/%02d/%d\t\t%s\n", emp.legajo, emp.nombre, emp.sexo, emp.sueldo, emp.fechaNac.dia, emp.fechaNac.mes, emp.fechaNac.anio, descSector);
+    printf("%d\t%s\t%c\t%.2f\t%02d/%02d/%d\t\t%s\n", emp.legajo, emp.nombre, emp.sexo, emp.sueldo, emp.fechaIn.dia, emp.fechaIn.mes, emp.fechaIn.anio, descSector);
 
 }
 //-----------------------------------------------------------
@@ -256,13 +261,13 @@ void altaEmpleado(eSector sectores[], int tamSectores, eEmpleado vec[], int tam)
             scanf("%f", &vec[indice].sueldo );
 
             printf("Ingrese el dia de nacimiento: ");
-            scanf("%d", &vec[indice].fechaNac.dia);
+            scanf("%d", &vec[indice].fechaIn.dia);
 
             printf("Ingrese el mes de nacimiento: ");
-            scanf("%d", &vec[indice].fechaNac.mes);
+            scanf("%d", &vec[indice].fechaIn.mes);
 
             printf("Ingrese el ano de nacimiento: ");
-            scanf("%d", &vec[indice].fechaNac.anio);
+            scanf("%d", &vec[indice].fechaIn.anio);
 
             printf("Ingrese el codigo del sector: ");
             scanf("%d", &vec[indice].idSector);
@@ -352,6 +357,82 @@ void ordenarEmpleadosAZ(eEmpleado vec[], int tam)
     }
 
 }
+//-----------------------------------------------------------
+void obtenerSector(eSector sectores[], int tamSectores, int idSectorEmp, char descMostrar[])
+{
+    for(int i=0; i<tamSectores; i++)
+    {
+        if(idSectorEmp == sectores[i].id)
+        {
+            strcpy(descMostrar,sectores[i].desc);
+            break;
+        }
+    }
+
+
+
+}
+//-----------------------------------------------------------
+//void mostrarSector(eSector sectores[], int tamSectores)
+//{
+//
+//
+//    printf("\nID\tSector\n");
+//
+//    printf("%d\t%s\n\n", sectores[i].id, sectores[i].desc);
+//
+//}
+//-----------------------------------------------------------
+void mostrarSectores(eSector sectores[], int tamSectores)
+{
+    int contador = 0;
+
+    printf("\nID\tSector\n");
+
+    for(int i=0; i < tamSectores; i++)
+    {
+        printf("%d\t%s\n", sectores[i].id, sectores[i].desc);
+        contador = 1;
+    }
+
+    if( contador == 0)
+    {
+        printf("\nNo sectores definidos\n");
+    }
+    printf("\n\n");
+}
+//-----------------------------------------------------------
+void mostrarSectoresConEmpleados(eSector sectores[], int tamSectores, eEmpleado vec[], int tamEmp)
+{
+    system("cls");
+    for(int i =0; i<tamSectores; i++)
+    {
+        printf("%s\n----------\n", sectores[i].desc);
+        printf("\nLegajo\tNombre\tSexo\tSueldo\t\tFecha de ingreso\tSector\n");
+        for(int j=0; j<tamEmp; j++ )
+        {
+            if(vec[j].idSector==sectores[i].id && vec[j].ocupado==1)
+            {
+                mostrarEmpleado(sectores, tamSectores, vec[j]);
+            }
+        }
+        printf("\n\n");
+    }
+}
+//-----------------------------------------------------------
+void censoSectores(eSector sectores[], int tamSectores, eEmpleado vec[], int tamEmp)
+{
+
+}
+
+
+
+
+
+
+
+
+
 
 //void listarPorSector(vectorSectores[], int largoVectorSectores)
 //{
