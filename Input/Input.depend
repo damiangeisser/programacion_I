@@ -35,3 +35,15 @@
 	<stdlib.h>
 	<string.h>
 
+1556022570 source:e:\estudio\programación\utn\programación i\programacion_i\input\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1556022570 source:e:\estudio\programación\utn\programación i\programacion_i\input\main.c
+	<stdio.h>
+	<stdlib.h>
+	"inc/input.h"
+
+1556022570 e:\estudio\programación\utn\programación i\programacion_i\input\inc\input.h
+

@@ -26,12 +26,29 @@
 	<conio.h>
 	"empleados.h"
 
-1556022570 source:e:\estudio\programación\utn\programación i\programacion_i\abmempleados\empleados.c
-
-1556027004 source:e:\estudio\programación\utn\programación i\programacion_i\abmempleados\main.c
+1556032460 source:e:\estudio\programación\utn\programación i\programacion_i\abmempleados\empleados.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
 	<conio.h>
 	<string.h>
+	"empleados.h"
+	"input.h"
+
+1556032694 source:e:\estudio\programación\utn\programación i\programacion_i\abmempleados\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"empleados.h"
+
+1556029625 e:\estudio\programación\utn\programación i\programacion_i\abmempleados\empleados.h
+
+1556033349 source:e:\estudio\programación\utn\programación i\programacion_i\abmempleados\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1556032352 e:\estudio\programación\utn\programación i\programacion_i\abmempleados\input.h
 
