@@ -26,3 +26,12 @@
 	<conio.h>
 	"empleados.h"
 
+1556022570 source:e:\estudio\programación\utn\programación i\programacion_i\abmempleados\empleados.c
+
+1556027004 source:e:\estudio\programación\utn\programación i\programacion_i\abmempleados\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+
