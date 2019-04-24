@@ -67,3 +67,28 @@
 	<stdlib.h>
 	<string.h>
 
+1556107694 source:d:\dg\programacion_i\abmempleadospracticaparcial\empleados.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"empleados.h"
+	"input.h"
+
+1556105313 d:\dg\programacion_i\abmempleadospracticaparcial\empleados.h
+
+1556105313 d:\dg\programacion_i\abmempleadospracticaparcial\input.h
+
+1556107836 source:d:\dg\programacion_i\abmempleadospracticaparcial\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1556108602 source:d:\dg\programacion_i\abmempleadospracticaparcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+
