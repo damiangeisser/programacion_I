@@ -1,0 +1,54 @@
+# depslib dependency file v1.0
+1555945491 source:d:\dg\programacion_i\abmempleados\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+
+1555941661 d:\dg\programacion_i\abmempleados\empleados.h
+
+1555941846 source:d:\dg\programacion_i\abmempleados\empleados.c
+
+1555926822 source:e:\estudio\programación\utn\programación i\clonado de github\programacion_i\abmempleados\empleados.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	"empleados.h"
+
+1555926257 e:\estudio\programación\utn\programación i\clonado de github\programacion_i\abmempleados\empleados.h
+
+1555927411 source:e:\estudio\programación\utn\programación i\clonado de github\programacion_i\abmempleados\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	"empleados.h"
+
+1556038567 source:e:\estudio\programación\utn\programación i\programacion_i\abmempleados\empleados.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"empleados.h"
+	"input.h"
+
+1556032694 source:e:\estudio\programación\utn\programación i\programacion_i\abmempleados\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"empleados.h"
+
+1556029625 e:\estudio\programación\utn\programación i\programacion_i\abmempleados\empleados.h
+
+1556038286 source:e:\estudio\programación\utn\programación i\programacion_i\abmempleados\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1556037704 e:\estudio\programación\utn\programación i\programacion_i\abmempleados\input.h
+
