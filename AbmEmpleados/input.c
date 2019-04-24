@@ -5,12 +5,13 @@
 int getInt(int* input,char message[],char eMessage[], int lowLimit, int hiLimit)
 {
     int valor;
+    int returnScanf;
     int error = -1;
 
     printf("%s ", message);
-    scanf("%d", &valor);
+    returnScanf = scanf("%d", &valor);
 
-    while(valor < lowLimit || valor > hiLimit)
+    while(returnScanf = 0 || valor < lowLimit || valor > hiLimit)
     {
 
         printf("\n%s\n", eMessage);
@@ -27,12 +28,13 @@ int getInt(int* input,char message[],char eMessage[], int lowLimit, int hiLimit)
 int getFloat(float* input,char message[],char eMessage[], float lowLimit, float hiLimit)
 {
     float valor;
+    int returnScanf;
     int error = -1;
 
     printf("%s ", message);
     scanf("%f", &valor);
 
-    while(valor < lowLimit || valor > hiLimit)
+    while(returnScanf = 0 || valor < lowLimit || valor > hiLimit)
     {
 
         printf("\n%s\n", eMessage);

@@ -91,7 +91,7 @@ int main()
 
             if( tolower(confirma) == 's')
             {
-                printf("\n\n- Programa finalizado -\n");
+                printf("\n\n-- Programa finalizado --\n");
                 seguir = 'n';
             }
             break;
