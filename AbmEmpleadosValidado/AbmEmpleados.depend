@@ -52,3 +52,30 @@
 
 1556037704 e:\estudio\programación\utn\programación i\programacion_i\abmempleados\input.h
 
+1557083941 source:e:\estudio\programación\utn\programación i\programacion_i\abmempleadosvalidado\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"empleados.h"
+
+1557083886 e:\estudio\programación\utn\programación i\programacion_i\abmempleadosvalidado\empleados.h
+
+1557084045 source:e:\estudio\programación\utn\programación i\programacion_i\abmempleadosvalidado\empleados.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"empleados.h"
+	"input.h"
+
+1557076640 e:\estudio\programación\utn\programación i\programacion_i\abmempleadosvalidado\input.h
+
+1557074128 source:e:\estudio\programación\utn\programación i\programacion_i\abmempleadosvalidado\input.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+

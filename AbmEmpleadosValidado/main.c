@@ -11,15 +11,15 @@
 
 #endif // empleados_H_INCLUIDA
 
-#define TAM 11
+#define TAM_EMP 11
 #define TAM_SEC 5
 
 int main()
 {
     char seguir = 's';
     char confirma;
-    //eEmpleado lista[TAM];
-    eEmpleado lista[TAM]= {{1105, "Juan", 'm', 30000, 2,10,2002,2, 1},
+    //eEmpleado listaEmpleados[TAM_EMP];
+    eEmpleado listaEmpleados[TAM_EMP]= {{1105, "Juan", 'm', 30000, 2,10,2002,2, 1},
         {1236, "Ana", 'f', 32000,25,6,2015,1, 1},
         {1110, "Pedro", 'm', 32000,10,10,2013,4, 1},
         {1185, "Jose", 'm', 34000,25,6,2003,2, 1},
@@ -30,7 +30,7 @@ int main()
         {1253, "Hernan", 'm', 38000,7,3,2004,5, 1},
         {1118, "Aldana", 'f', 35000,12,9,2008,5, 1}
     };
-    //inicializarEmpleados(lista, TAM);
+    //inicializarEmpleados(listaEmpleados, TAM_EMP);
 
     eSector listaSectores[]= {{1, "Sistemas"},{2, "RR HH"},{3,"Compras"},{4,"Ventas"},{5, "Legales"}};
 
@@ -41,29 +41,30 @@ int main()
 
         case 1:
 
-            altaEmpleado(listaSectores, TAM_SEC, lista, TAM);
+            altaEmpleado(listaSectores, TAM_SEC, listaEmpleados, TAM_EMP);
             system("pause");
             break;
 
         case 2:
 
-            bajaEmpleado(listaSectores, TAM_SEC, lista, TAM);
+            bajaEmpleado(listaSectores, TAM_SEC, listaEmpleados, TAM_EMP);
             system("pause");
             break;
 
         case 3:
-            modificarEmpleado(lista,TAM);
+            modificarEmpleado(listaSectores, TAM_SEC, listaEmpleados, TAM_EMP);
             system("pause");
             break;
 
         case 4:
 
-            ordenarEmpleadosAZ(lista,TAM);
+            //ordenarEmpleadosAZ(listaEmpleados,TAM_EMP);
+            ordenarEmpleadosLegajoAZ(listaEmpleados, TAM_EMP);
             system("pause");
             break;
 
         case 5:
-            mostrarEmpleados(listaSectores, TAM_SEC, lista, TAM);
+            mostrarEmpleados(listaSectores, TAM_SEC, listaEmpleados, TAM_EMP);
             system("pause");
             break;
 
@@ -73,19 +74,19 @@ int main()
             break;
 
         case 7:
-            mostrarSectoresConEmpleados(listaSectores, TAM_SEC, lista, TAM);
+            mostrarSectoresConEmpleados(listaSectores, TAM_SEC, listaEmpleados, TAM_EMP);
             system("pause");
             break;
         case 8:
-            censoSectores(listaSectores, TAM_SEC, lista, TAM);
+            censoSectores(listaSectores, TAM_SEC, listaEmpleados, TAM_EMP);
             system("pause");
             break;
         case 9:
-            listarSectorSeleccionado(listaSectores, TAM_SEC, lista, TAM);
+            listarSectorSeleccionado(listaSectores, TAM_SEC, listaEmpleados, TAM_EMP);
             system("pause");
             break;
         case 10:
-            printf("\nConfirma la salida del programa s/n?: ");
+            printf("\nConfirma la salida del programa? s/n: ");
             fflush(stdin);
             confirma = getche();
 
@@ -105,3 +106,4 @@ int main()
 
     return 0;
 }
+

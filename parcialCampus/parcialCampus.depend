@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1557074128 source:e:\estudio\programación\utn\programación i\programacion_i\parcialcampus\input.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+
+1557090925 source:e:\estudio\programación\utn\programación i\programacion_i\parcialcampus\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<conio.h>
+	"input.h"
+
+1557076640 e:\estudio\programación\utn\programación i\programacion_i\parcialcampus\input.h
+
