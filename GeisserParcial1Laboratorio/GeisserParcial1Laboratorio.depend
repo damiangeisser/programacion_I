@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1557149507 source:d:\dg\programacion_i\geisserparcial1laboratorio\input.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+
+1557153643 source:d:\dg\programacion_i\geisserparcial1laboratorio\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	"input.h"
+	"socios.h"
+
+1557149527 d:\dg\programacion_i\geisserparcial1laboratorio\input.h
+
+1557153619 d:\dg\programacion_i\geisserparcial1laboratorio\socios.h
+
+1557153690 source:d:\dg\programacion_i\geisserparcial1laboratorio\socios.c
+	"socios.h"
+

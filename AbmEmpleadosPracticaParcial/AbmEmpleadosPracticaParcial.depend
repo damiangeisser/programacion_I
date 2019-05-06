@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1556108819 source:d:\dg\programacion_i\abmempleadospracticaparcial\empleados.c
+1557142134 source:d:\dg\programacion_i\abmempleadospracticaparcial\empleados.c
 
-1556107836 source:d:\dg\programacion_i\abmempleadospracticaparcial\input.c
+1557142134 source:d:\dg\programacion_i\abmempleadospracticaparcial\input.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1556119251 source:d:\dg\programacion_i\abmempleadospracticaparcial\main.c
+1557142134 source:d:\dg\programacion_i\abmempleadospracticaparcial\main.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -14,7 +14,7 @@
 	<string.h>
 	"input.h"
 
-1556105313 d:\dg\programacion_i\abmempleadospracticaparcial\input.h
+1557142134 d:\dg\programacion_i\abmempleadospracticaparcial\input.h
 
 1556128539 source:e:\estudio\programación\utn\programación i\programacion_i\abmempleadospracticaparcial\empleados.c
 
