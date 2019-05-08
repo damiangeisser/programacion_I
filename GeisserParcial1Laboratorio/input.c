@@ -3,6 +3,7 @@
 #include <ctype.h>
 #include <string.h>
 
+// 1 -------------------------------------------------------------------------------
 int checkNumber(char* input)
 {
     int error=0;
@@ -17,7 +18,7 @@ int checkNumber(char* input)
     }
     return error;
 }
-
+// 1 -------------------------------------------------------------------------------
 int checkLetter(char* input)
 {
     int error=0;
@@ -32,7 +33,7 @@ int checkLetter(char* input)
     }
     return error;
 }
-
+// 1 -------------------------------------------------------------------------------
 int checkSymbol(char* input, char target, int maxCopies)
 {
     int error=1;
@@ -236,7 +237,7 @@ int getDate(int* inputY, int* inputM, int* inputD, char message[], int yLowLimit
 
     return error;
 }
-
+// 1 -------------------------------------------------------------------------------
 int getPhone(char* input,char message[],char eMessage[], int lowLimit, int hiLimit)
 {
     char valor[50];
@@ -264,7 +265,23 @@ int getPhone(char* input,char message[],char eMessage[], int lowLimit, int hiLim
 
     return error;
 }
+// 1 -------------------------------------------------------------------------------
+int titleCase(char* input)
+{
+    strlwr(input);
 
+    input[0] = toupper(input[0]);
+
+    for(int i=0; i<strlen(input); i++)
+    {
+        if(input[i] == ' ')
+        {
+            input[i+1] = toupper(input[i+1]);
+        }
+    }
+    return 0;
+}
+// 1 -------------------------------------------------------------------------------
 int getName(char* input,char message[],char eMessage[], int lowLimit, int hiLimit)
 {
     char valor[50];
@@ -287,13 +304,15 @@ int getName(char* input,char message[],char eMessage[], int lowLimit, int hiLimi
         notLetter=checkLetter(valor);
     }
 
+    titleCase(valor);
+
     strcpy(input,valor);
 
     error = 0;
 
     return error;
 }
-
+// 1 -------------------------------------------------------------------------------
 int getEmail(char* input,char message[],char eMessage[], int lowLimit, int hiLimit)
 {
     char valor[50];
@@ -320,11 +339,12 @@ int getEmail(char* input,char message[],char eMessage[], int lowLimit, int hiLim
         notDot=checkSymbol(valor,'.',10);
     }
 
+    strlwr(valor);
+
     strcpy(input,valor);
 
     error = 0;
 
     return error;
 }
-
 

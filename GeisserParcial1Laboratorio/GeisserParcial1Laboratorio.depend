@@ -20,7 +20,7 @@
 1557153690 source:d:\dg\programacion_i\geisserparcial1laboratorio\socios.c
 	"socios.h"
 
-1557279113 source:e:\estudio\programación\utn\programación i\programacion_i\geisserparcial1laboratorio\input.c
+1557308566 source:e:\estudio\programación\utn\programación i\programacion_i\geisserparcial1laboratorio\input.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -31,7 +31,7 @@
 
 1557242925 e:\estudio\programación\utn\programación i\programacion_i\geisserparcial1laboratorio\socios.h
 
-1557286629 source:e:\estudio\programación\utn\programación i\programacion_i\geisserparcial1laboratorio\main.c
+1557311838 source:e:\estudio\programación\utn\programación i\programacion_i\geisserparcial1laboratorio\main.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -39,5 +39,5 @@
 	<string.h>
 	"input.h"
 
-1557279337 e:\estudio\programación\utn\programación i\programacion_i\geisserparcial1laboratorio\input.h
+1557308426 e:\estudio\programación\utn\programación i\programacion_i\geisserparcial1laboratorio\input.h
 
