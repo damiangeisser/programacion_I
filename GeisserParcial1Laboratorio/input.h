@@ -69,4 +69,16 @@ int getCharGenre(char* input,char message[],char eMessage[]);
 */
 int getDate(int* inputY, int* inputM, int* inputD, char message[], int yLowLimit, int yHiLimit);
 
-int getCell(int* input,char message[],char eMessage[], int lowLimit, int hiLimit);
+int checkNum(char* input);
+
+int checkLetter(char* input);
+
+int checkSymbol(char* input, char target, int maxCopies);
+
+int getPhone(char* input,char message[],char eMessage[], int lowLimit, int hiLimit);
+
+int getName(char* input,char message[],char eMessage[], int lowLimit, int hiLimit);
+
+int getEmail(char* input,char message[],char eMessage[], int lowLimit, int hiLimit);
+
+

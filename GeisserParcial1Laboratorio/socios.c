@@ -1,4 +1,4 @@
-#include "socios.h"
+//#include "socios.h"
 
 
 int menu()

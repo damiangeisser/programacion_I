@@ -3,12 +3,63 @@
 #include <ctype.h>
 #include <string.h>
 
+int checkNumber(char* input)
+{
+    int error=0;
+
+    for(int i=0; i<strlen(input); i++)
+    {
+        if(input[i]<'0' || input[i]>'9')
+        {
+            error=1;
+            break;
+        }
+    }
+    return error;
+}
+
+int checkLetter(char* input)
+{
+    int error=0;
+
+    for(int i=0; i<strlen(input); i++)
+    {
+        if((input[i]!=' ') && (input[i]<'a' || input[i]>'z') && (input[i]<'A' || input[i]>'Z'))
+        {
+            error=1;
+            break;
+        }
+    }
+    return error;
+}
+
+int checkSymbol(char* input, char target, int maxCopies)
+{
+    int error=1;
+    int copies=0;
+
+    for(int i=0; i<strlen(input); i++)
+    {
+        if(input[i]==target)
+        {
+            copies++;
+        }
+    }
+
+    if(copies>0 && copies<=maxCopies)
+    {
+        error = 0;
+    }
+
+    return error;
+}
+
 // 1 -------------------------------------------------------------------------------
 int getInt(int* input,char message[],char eMessage[], int lowLimit, int hiLimit)
 {
     int valor;
     int returnScanf;
-    int error = -1;
+    int error = 1;
 
     printf("%s ", message);
     returnScanf = scanf("%d", &valor);
@@ -32,7 +83,7 @@ int getFloat(float* input,char message[],char eMessage[], float lowLimit, float 
 {
     float valor;
     int returnScanf;
-    int error = -1;
+    int error = 1;
 
     printf("%s ", message);
     returnScanf = scanf("%f", &valor);
@@ -55,7 +106,7 @@ int getFloat(float* input,char message[],char eMessage[], float lowLimit, float 
 int getChar(char* input,char message[],char eMessage[], char lowLimit, char hiLimit)
 {
     char valor;
-    int error = -1;
+    int error = 1;
 
     printf("%s ", message);
     fflush(stdin);
@@ -81,7 +132,7 @@ int getChar(char* input,char message[],char eMessage[], char lowLimit, char hiLi
 int getString(char* input,char message[],char eMessage[], int lowLimit, int hiLimit)
 {
     char valor[50];
-    int error = -1;
+    int error = 1;
 
     printf("%s ", message);
     fflush(stdin);
@@ -105,7 +156,7 @@ int getString(char* input,char message[],char eMessage[], int lowLimit, int hiLi
 int getCharGenre(char* input,char message[],char eMessage[])
 {
     char valor;
-    int error = -1;
+    int error = 1;
 
     printf("%s ", message);
     fflush(stdin);
@@ -133,7 +184,7 @@ int getDate(int* inputY, int* inputM, int* inputD, char message[], int yLowLimit
     int month;
     int year;
     int leap=0;//Bandera para los años bisiestos.
-    int error = -1;
+    int error = 1;
     char printYear[50]="Ingrese el anio de ";
     char printMonth[50]="Ingrese el mes de ";
     char printDay[50]="Ingrese el dia de ";
@@ -186,22 +237,25 @@ int getDate(int* inputY, int* inputM, int* inputD, char message[], int yLowLimit
     return error;
 }
 
-int getCell(int* input,char message[],char eMessage[], int lowLimit, int hiLimit)
+int getPhone(char* input,char message[],char eMessage[], int lowLimit, int hiLimit)
 {
-    int returnScanf;
-    int valor[50];
-    int error = -1;
+    char valor[50];
+    int error = 1;
+    int notNumber;
 
     printf("%s ", message);
     fflush(stdin);
     gets(valor);
 
-    while(strlen(valor) < lowLimit || strlen(valor) > hiLimit)
+    notNumber = checkNumber(valor);
+
+    while((strlen(valor) < lowLimit || strlen(valor) > hiLimit)|| notNumber)
     {
         printf("\n%s\n", eMessage);
         printf("\n%s ", message);
         fflush(stdin);
         gets(valor);
+        notNumber = checkNumber(valor);
     }
 
     strcpy(input,valor);
@@ -210,3 +264,67 @@ int getCell(int* input,char message[],char eMessage[], int lowLimit, int hiLimit
 
     return error;
 }
+
+int getName(char* input,char message[],char eMessage[], int lowLimit, int hiLimit)
+{
+    char valor[50];
+    int error = 1;
+    int notLetter;
+
+    printf("%s ", message);
+    fflush(stdin);
+    gets(valor);
+
+    notLetter=checkLetter(valor);
+
+    while((strlen(valor) < lowLimit || strlen(valor) > hiLimit) || notLetter)
+    {
+        printf("\n%s\n", eMessage);
+        printf("\n%s ", message);
+        fflush(stdin);
+        gets(valor);
+
+        notLetter=checkLetter(valor);
+    }
+
+    strcpy(input,valor);
+
+    error = 0;
+
+    return error;
+}
+
+int getEmail(char* input,char message[],char eMessage[], int lowLimit, int hiLimit)
+{
+    char valor[50];
+    int error = 1;
+    int notAt;
+    int notDot;
+
+    printf("%s ", message);
+    fflush(stdin);
+    gets(valor);
+
+    notAt=checkSymbol(valor,'@',1);
+
+    notDot=checkSymbol(valor,'.',10);
+
+    while((strlen(valor) < lowLimit || strlen(valor) > hiLimit) || notAt || notDot)
+    {
+        printf("\n%s\n", eMessage);
+        printf("\n%s ", message);
+        fflush(stdin);
+        gets(valor);
+
+        notAt=checkSymbol(valor,'@',1);
+        notDot=checkSymbol(valor,'.',10);
+    }
+
+    strcpy(input,valor);
+
+    error = 0;
+
+    return error;
+}
+
+
