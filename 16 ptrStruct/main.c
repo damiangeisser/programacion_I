@@ -98,8 +98,8 @@ int main()
         scanf("%ld", &(*(ptrPers+i)).dni);
 
         printf("\nNOMBRE: ");
-        setbuf(stdin, NULL);
-        scanf("%[^\n]", (*(ptrPers+i)).nombre);
+        setbuf(stdin, NULL);//Ídem fflush
+        scanf("%[^\n]", (*(ptrPers+i)).nombre);//%[^\n] Expresión regular. Acepta todo menos \n
 
         printf("FECHA NACIMIENTO\n");
 
