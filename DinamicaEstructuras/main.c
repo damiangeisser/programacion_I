@@ -7,13 +7,10 @@ typedef struct
     char nombre[20];
     char sexo;
     float sueldo;
-    int ocupado;
 } eEmpleado;
 
 int main()
 {
-    eEmpleado emp1;
-
     eEmpleado* pEmp;
 
     pEmp = (eEmpleado*) malloc(sizeof(eEmpleado));
