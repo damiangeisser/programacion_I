@@ -5,7 +5,7 @@ int main()
 {
 
     int* pNum;
-    int flagNull;
+    //int flagNull;
 
     pNum = (int*) malloc(sizeof(int));//Si no consigue espacio devuelve NULL (no dirección de memoria). Se castea para convertirlo.
 
@@ -20,7 +20,7 @@ int main()
 
     printf("%d\n", *pNum);
 
-    pNum=NULL;
+    //pNum=NULL;
 
     //checkNull(pNum);
 
@@ -28,14 +28,15 @@ int main()
 
     flagNull= checkNull(pNum);
 
-    if (flagNull){
+    if (flagNull)
+    {
         printf("\nNo se consiguio memoria\n");
         system("pause");
         exit(1);//Me saca de la ejecución del programa. Devuelve 1 al OS ¡No utilizar en funciones!
 
     }
 
-        free(pNum);//Libera la memoria pedida con malloc.
+    free(pNum);//Libera la memoria pedida con malloc.
     return 0;
 }
 

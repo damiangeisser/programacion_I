@@ -26,32 +26,48 @@ int main()
 
     for(int i = 0; i<5; i++)
     {
-        printf("%d\n", *(pNum+i));
+        printf("%d ", *(pNum+i));
     }
 
     pAux = realloc(pNum,sizeof(int)*10);
 
-    if(pAux!=NULL){
-
-        pNum = pAux;
-    }
-
-     printf("\n-- Cambio tamanio --\n\n");
-
-    for(int i = 5; i<10; i++)
+    if(pAux!=NULL)
     {
-        printf("Ingrese un numero: ");
-        scanf("%d", pNum+i);
+        pNum = pAux;
+
+        printf("\n\n-- Aumento el tamanio --\n\n");
+
+        for(int i = 5; i<10; i++)
+        {
+            printf("Ingrese un numero: ");
+            scanf("%d", pNum+i);
+        }
     }
 
     printf("\nUsted ingreso:\n");
 
     for(int i = 0; i<10; i++)
     {
-        printf("%d\n", *(pNum+i));
+        printf("%d ", *(pNum+i));
     }
 
-    //printf("%d", sizeof(*pNum));
+    printf("\n\n-- Reduzco el tamanio --\n\n");
+
+    pNum = realloc(pNum,sizeof(int)*4);//Achico el array.
+
+    for(int i = 0; i<10; i++) //Muestro las 10 posiciones. Puede aparecer basura.
+    {
+        printf("%d ", *(pNum+i));
+    }
+
+    int* vec;
+
+    vec = (int*) calloc(10,sizeof(int)*10);//Crea un array inicializado en cero.
+
+    for(int i = 0; i<10; i++)
+    {
+        printf("%d ", *(vec+i));
+    }
 
     free(pNum);//Libera la memoria pedida con malloc.
 
