@@ -3,58 +3,67 @@
 #define ARCH	".\\bin.dat"
 #define ESC 27
 
-struct a{
-		char nombre[31];
-		int edad;
-	};
+struct a
+{
+    char nombre[31];
+    int edad;
+};
 
 int main (void)
 {
-   FILE  *bin;
-   struct a pers;
-   int cant;
+    FILE  *bin;
+    struct a pers;
+    int cant;
 
-   if ((bin=fopen(ARCH,"rb+"))==NULL){
-      if ((bin=fopen(ARCH,"wb+"))==NULL){
-         printf("No se pudo abrir el archivo");
-         exit(1);
-      }
-   }
+    if ((bin=fopen(ARCH,"rb+"))==NULL)
+    {
+        if ((bin=fopen(ARCH,"wb+"))==NULL)
+        {
+            printf("No se pudo abrir el archivo");
+            exit(1);
+        }
+    }
 
-   do{
-      printf("\nIngrese el nombre: ");
-      gets(pers.nombre);
+    do
+    {
+        printf("\nIngrese el nombre: ");
+        gets(pers.nombre);
 
-      printf("Ingrese la edad: ");
-      scanf("%d",&pers.edad);
+        printf("Ingrese la edad: ");
+        scanf("%d",&pers.edad);
 
-      fflush(stdin);
-      fseek(bin , 0L, SEEK_END);//Argumentos: puntero al archivo, desplazamiento en bytes (0L ero long), origen (al final del archivo).
-      fwrite(&pers,sizeof(pers),1,bin);
+        fflush(stdin);
+        fseek(bin, 0L, SEEK_END); //Argumentos: puntero al archivo, desplazamiento en bytes (0L ero long), origen (al final del archivo).
+        fwrite(&pers,sizeof(pers),1,bin);
 
-      printf("\nPresione ESC para terminar");
-   }while((getche())!=ESC);
+        printf("\nPresione ESC para terminar");
+    }
+    while((getche())!=ESC);
 
-   rewind (bin);//Se lleva el indicador de posición al principio para comenzar a leer
+    rewind (bin);//Se lleva el indicador de posición al principio para comenzar a leer
 
-   while(!feof(bin)){
-      cant = fread(&pers,sizeof(pers),1,bin);
+    while(!feof(bin))
+    {
+        cant = fread(&pers,sizeof(pers),1,bin);
 
-      if(cant!=1){
-         if(feof(bin)){
-			break;
-         }
-         else{
-			printf("No leyo el ultimo registro");
-			break;
-         }
-      }
+        if(cant!=1)
+        {
+            if(feof(bin))
+            {
+                break;
+            }
+            else
+            {
+                printf("No leyo el ultimo registro");
+                break;
+            }
+        }
 
-      printf("\n%s\t%d",pers.nombre,pers.edad);
-   }
+        printf("\n%s\t%d",pers.nombre,pers.edad);
+    }
 
-   fclose(bin);
-   getch();
+    fclose(bin);
+    getch();//Funciona como un system("pause");
 
-   return 0;
+    return 0;
 }
