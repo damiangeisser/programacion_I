@@ -134,5 +134,3 @@ int getName(char* input,char message[],char eMessage[], int lowLimit, int hiLimi
 *
 */
 int getEmail(char* input,char message[],char eMessage[], int lowLimit, int hiLimit);
-
-
