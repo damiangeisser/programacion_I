@@ -22,7 +22,7 @@ int main (void)
 	while(!feof(bin))
 	{
 			cant = fread(&pers,sizeof(pers),1,bin);
-			if(cant!=1)
+			if(cant!=1)//Constata que se haya podido leer una estructura pers para evitar que se lea dos veces el último registro.
 			{
 				if(feof(bin))
 					break;

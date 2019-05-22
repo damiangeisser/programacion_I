@@ -29,14 +29,13 @@ int main (void)
       scanf("%d",&pers.edad);
 
       fflush(stdin);
-      fseek(bin , 0L, SEEK_END);
+      fseek(bin , 0L, SEEK_END);//Argumentos: puntero al archivo, desplazamiento en bytes (0L ero long), origen (al final del archivo).
       fwrite(&pers,sizeof(pers),1,bin);
 
       printf("\nPresione ESC para terminar");
    }while((getche())!=ESC);
 
-   //se lleva el indicador de posición al principio para comenzar a leer
-   rewind (bin);
+   rewind (bin);//Se lleva el indicador de posición al principio para comenzar a leer
 
    while(!feof(bin)){
       cant = fread(&pers,sizeof(pers),1,bin);
