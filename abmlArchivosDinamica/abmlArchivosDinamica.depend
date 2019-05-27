@@ -3,3 +3,31 @@
 	<stdio.h>
 	<stdlib.h>
 
+1558922089 source:e:\estudio\programación\utn\programación i\programacion_i\abmlarchivosdinamica\empleadosdin.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"inputDin.h"
+	"empleadosDin.h"
+
+1558897286 source:e:\estudio\programación\utn\programación i\programacion_i\abmlarchivosdinamica\inputdin.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+
+1558918621 source:e:\estudio\programación\utn\programación i\programacion_i\abmlarchivosdinamica\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<conio.h>
+	"inputDin.h"
+	"empleadosDin.h"
+
+1558897321 e:\estudio\programación\utn\programación i\programacion_i\abmlarchivosdinamica\inputdin.h
+
+1558920916 e:\estudio\programación\utn\programación i\programacion_i\abmlarchivosdinamica\empleadosdin.h
+

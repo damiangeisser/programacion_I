@@ -347,3 +347,4 @@ int getEmail(char* input,char message[],char eMessage[], int lowLimit, int hiLim
 
     return error;
 }
+

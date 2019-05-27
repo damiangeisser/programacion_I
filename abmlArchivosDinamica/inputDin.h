@@ -1,3 +1,6 @@
+#ifndef INPUTDIN_H_INCLUDED
+#define INPUTDIN_H_INCLUDED
+
 /**
 * \brief Solicita un número entero al usuario y lo valida
 * \param input Se carga el numero ingresado
@@ -134,3 +137,5 @@ int getName(char* input,char message[],char eMessage[], int lowLimit, int hiLimi
 *
 */
 int getEmail(char* input,char message[],char eMessage[], int lowLimit, int hiLimit);
+
+#endif // INPUTDIN_H_INCLUDED
