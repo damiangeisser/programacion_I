@@ -207,8 +207,6 @@ void altaEmpleado(const char *path)
     }
     while((getche())!=27);
 
-
-
 fclose(bin);
 
 }

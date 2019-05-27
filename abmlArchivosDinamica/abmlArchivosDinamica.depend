@@ -1,7 +1,12 @@
 # depslib dependency file v1.0
-1446667744 source:d:\dg\programacion_i\abmlarchivosdinamica\main.c
+1558971493 source:d:\dg\programacion_i\abmlarchivosdinamica\main.c
 	<stdio.h>
 	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<conio.h>
+	"inputDin.h"
+	"empleadosDin.h"
 
 1558922089 source:e:\estudio\programación\utn\programación i\programacion_i\abmlarchivosdinamica\empleadosdin.c
 	<stdio.h>
@@ -30,4 +35,14 @@
 1558897321 e:\estudio\programación\utn\programación i\programacion_i\abmlarchivosdinamica\inputdin.h
 
 1558920916 e:\estudio\programación\utn\programación i\programacion_i\abmlarchivosdinamica\empleadosdin.h
+
+1558971493 source:d:\dg\programacion_i\abmlarchivosdinamica\inputdin.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+
+1558971493 d:\dg\programacion_i\abmlarchivosdinamica\inputdin.h
+
+1558971493 d:\dg\programacion_i\abmlarchivosdinamica\empleadosdin.h
 
