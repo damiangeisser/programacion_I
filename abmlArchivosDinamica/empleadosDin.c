@@ -61,7 +61,7 @@ int mostrarEmpleado(const char *path, int position)
 
     if(bin!=NULL && readQty==1 && !emp.isEmpty)
     {
-        printf("\n%s\t%d\t%d\n",emp.nombre,emp.edad,emp.legajo);
+        printf("\n%s\t%d\t%d\t%d\n",emp.nombre,emp.edad,emp.legajo, emp.isEmpty);
         error=0;
     }
 
@@ -129,7 +129,6 @@ int buscarEmpleado(const char *path, int legajo)
     }
     else
     {
-
         while(!feof(bin))
         {
             readQty = fread(&emp,sizeof(emp),1,bin);
@@ -150,7 +149,7 @@ int buscarEmpleado(const char *path, int legajo)
         }
     }
 
-//    if(!found)
+//    if(found==0)
 //    {
 //        printf("\n(!) No existe un empleado con ese legajo (!)\n");
 //    }
@@ -169,7 +168,7 @@ void altaEmpleado(const char *path)
 
     do
     {
-        getInt(legajoAux,"\nIngrese el legajo del nuevo empleado y presione enter: ","(!) El legajo ingresado no es valido (!)",1,1000);
+        getInt(&legajoAux,"\nIngrese el legajo del nuevo empleado y presione enter: ","(!) El legajo ingresado no es valido (!)",1,1000);
 
         yaExiste=buscarEmpleado(path, legajoAux);
 
@@ -195,18 +194,18 @@ void altaEmpleado(const char *path)
 
                 fwrite(&emp,sizeof(emp),1,bin);
 
+                fclose(bin);
+
             }
         }
         else
         {
-            printf("\nYa existe un empleado con ese legajo.");
+            printf("\n(!) Ya existe un empleado con ese legajo (!)\n");
         }
 
-        printf("\nPresione ESC para terminar la carga de empleados o enter para continuar.");
+        printf("\nPresione ESC para terminar la carga de empleados o enter para continuar.\n");
 
     }
     while((getche())!=27);
-
-fclose(bin);
 
 }

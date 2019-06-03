@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1559132802 source:e:\estudio\programación\utn\programación i\programacion_i\parcial 1 laboratorio 1 geisser\input.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+
+1559133083 source:e:\estudio\programación\utn\programación i\programacion_i\parcial 1 laboratorio 1 geisser\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"input.h"
+	"socio.h"
+
+1559132806 e:\estudio\programación\utn\programación i\programacion_i\parcial 1 laboratorio 1 geisser\input.h
+
+1559132931 e:\estudio\programación\utn\programación i\programacion_i\parcial 1 laboratorio 1 geisser\socio.h
+
+1559133188 source:e:\estudio\programación\utn\programación i\programacion_i\parcial 1 laboratorio 1 geisser\socio.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"input.h"
+	"socio.h"
+

@@ -1,0 +1,471 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <conio.h>
+#include <string.h>
+
+#include "input.h"
+#include "socio.h"
+
+// 1 -----------------------------------------------------------
+int menu()
+{
+    int opcion;
+
+    system("cls");
+    printf("--- ABM Socios ---\n\n");
+    printf("1- Alta de Socio\n");
+    printf("2- Modificar Socio\n");
+    printf("3- Baja de Socio\n");
+    printf("4- Listar Socios\n");
+    printf("5- Listar Libros\n");
+    printf("6- Listar Autores\n");
+    printf("7- Alta Prestamos\n");
+    printf("8- Salir\n");
+
+    getInt(&opcion,"Ingrese una opcion: ","(!) Opcion invalida (!)", 1, 8);
+
+    return opcion;
+}
+
+// 2 -----------------------------------------------------------
+void mostrarSocio(eSocio socio)
+{
+
+    printf("%d\t%s\t%s\t%c\t%s %s %02d/%02d/%d\n", socio.idS, socio.apellido, socio.nombre, socio.sexo, socio.telefono, socio.email, socio.fechaAlta.dia, socio.fechaAlta.mes, socio.fechaAlta.anio);
+    //printf("%.3d %-8s\t%-8s %c %s\t%s\t%02d/%02d/%d\n", socio.idS, socio.apellido, socio.nombre, socio.sexo, socio.telefono, socio.email, socio.fechaAlta.dia, socio.fechaAlta.mes, socio.fechaAlta.anio);
+
+}
+
+void obtenerAutor(eAutor autores[], int tamAutores, int idAutor, char autorNA[])
+{
+    for(int i=0; i<tamAutores; i++)
+    {
+        if(idAutor == autores[i].idA)
+        {
+            strcpy(autorNA, autores[i].apellidoA);
+            strcat(autorNA, ", ");
+            strcat(autorNA, autores[i].nombreA);
+            break;
+        }
+    }
+}
+// 3 -----------------------------------------------------------
+void mostrarLibro(eAutor autores[], int tamAutores, eLibro libro)
+{
+    char autorNA[80];
+
+    obtenerAutor(autores, tamAutores, libro.idAutor, autorNA);
+
+    printf("%d\t%s\t%s\n", libro.idL, libro.titulo, autorNA);
+
+}
+// 4 -----------------------------------------------------------
+void mostrarAutor(eAutor autor)
+{
+
+    printf("%d\t%s\t%s\n", autor.idA, autor.apellidoA, autor.nombreA);
+
+}
+// 5 -----------------------------------------------------------
+void mostrarSociosOrdenados(eSocio vec[], int tam)
+{
+    int contador = 0;
+    eSocio auxSocio;
+
+    for(int i=0; i<tam-1; i++)
+    {
+        for(int j=i+1; j<tam; j++)
+        {
+            if(strcmp(vec[i].apellido, vec[j].apellido)>0)
+            {
+                auxSocio = vec[i];
+                vec[i] = vec[j];
+                vec[j] = auxSocio;
+            }
+            else if((strcmp(vec[i].apellido, vec[j].apellido)==0) && strcmp(vec[i].nombre, vec[j].nombre)>0)
+            {
+                auxSocio = vec[i];
+                vec[i] = vec[j];
+                vec[j] = auxSocio;
+            }
+        }
+    }
+
+    system("cls");
+    printf("\nCarnet   Apellido\tNombre\tSexo\tTelefono\teMail\tFecha de alta\n");
+
+    for(int i=0; i < tam; i++)
+    {
+        if(vec[i].ocupado == 1)
+        {
+            mostrarSocio(vec[i]);
+            contador++;
+        }
+    }
+
+    if(contador == 0)
+    {
+        printf("\n(!) No hay socios que mostrar (!)\n");
+    }
+}
+
+
+
+// 6 -----------------------------------------------------------
+void mostrarLibrosOrdenados(eAutor autores[], int tamAutores, eLibro vec[], int tam)
+{
+    int contador = 0;
+    eLibro auxLibro;
+
+    for(int i=0; i<tam-1; i++)
+    {
+        for(int j=i+1; j<tam; j++)
+        {
+            if(strcmp(vec[i].titulo, vec[j].titulo)>0)
+            {
+                auxLibro = vec[i];
+                vec[i] = vec[j];
+                vec[j] = auxLibro;
+            }
+        }
+    }
+
+    system("cls");
+    printf("\nCodigo\tTitulo\tAutor\n");
+
+    for(int i=0; i < tam; i++)
+    {
+        if(vec[i].ocupado == 1)
+        {
+            mostrarLibro(autores, tamAutores, vec[i]);
+            contador++;
+        }
+    }
+
+    if( contador == 0)
+    {
+        printf("\n(!) No hay libros que mostrar (!)\n");
+    }
+}
+// 7 -----------------------------------------------------------
+void mostrarAutoresOrdenados(eAutor vec[], int tam)
+{
+    int contador = 0;
+    eAutor auxAutor;
+
+    for(int i=0; i<tam-1; i++)
+    {
+        for(int j=i+1; j<tam; j++)
+        {
+            if(strcmp(vec[i].apellidoA, vec[j].apellidoA)>0)
+            {
+                auxAutor = vec[i];
+                vec[i] = vec[j];
+                vec[j] = auxAutor;
+            }
+            else if((strcmp(vec[i].apellidoA, vec[j].apellidoA)==0) && strcmp(vec[i].nombreA, vec[j].nombreA)>0)
+            {
+                auxAutor = vec[i];
+                vec[i] = vec[j];
+                vec[j] = auxAutor;
+            }
+        }
+    }
+
+    system("cls");
+    printf("\nID\tApellido\tNombre\n");
+
+    for(int i=0; i < tam; i++)
+    {
+        if(vec[i].ocupado == 1)
+        {
+            mostrarAutor(vec[i]);
+            contador++;
+        }
+    }
+
+    if( contador == 0)
+    {
+        printf("\n(!) No hay autores que mostrar (!)\n");
+    }
+}
+// 8 -----------------------------------------------------------
+int buscarLibre(eSocio vec[], int tam)
+{
+
+    int indice = -1;
+
+    for(int i=0; i < tam; i++)
+    {
+        if(vec[i].ocupado == 0)
+        {
+            indice = i;
+            break;
+        }
+    }
+
+    return indice;
+}
+// 9 -----------------------------------------------------------
+int buscarPLibre(ePrestamo vec[], int tam)
+{
+
+    int indice = -1;
+
+    for(int i=0; i < tam; i++)
+    {
+        if(vec[i].ocupado == 0)
+        {
+            indice = i;
+            break;
+        }
+    }
+
+    return indice;
+}
+// 10 -----------------------------------------------------------
+void inicializarSocios(eSocio vec[], int tam)
+{
+    for(int i=0; i < tam; i++)
+    {
+        vec[i].ocupado = 0;
+    }
+}
+// 11 -----------------------------------------------------------
+void inicializarPrestamos(ePrestamo vec[], int tam)
+{
+    for(int i=0; i < tam; i++)
+    {
+        vec[i].ocupado = 0;
+    }
+}
+// 12 -----------------------------------------------------------
+int altaSocio(eSocio vec[], int tam, int idMain)
+{
+    int indice;
+    int altaOk = 0;
+
+    indice = buscarLibre(vec, tam);
+
+    if( indice == -1)
+    {
+        printf("\n(!) No hay lugar en el sistema (!)\n\n");
+    }
+    else
+    {
+        vec[indice].idS = idMain++;
+
+        system("cls");
+
+        printf("--- Alta Socios ---\n\n");
+
+        getName(vec[indice].nombre,"Ingrese el nombre: ","(!) Error: ingrese entre 2 y 31 letras y/o espacios (!)", 2, 31);
+
+        getName(vec[indice].apellido,"Ingrese el apellido: ","(!) Error: ingrese entre 2 y 31 letras y/o espacios (!)", 2, 31);
+
+        getCharGender(&vec[indice].sexo,"Ingrese el sexo: ","(!) Error: ingrese f o m (!)");
+
+        getPhone(vec[indice].telefono,"Ingrese el telefono: ","(!) Error: ingrese entre 8 y 16 digitos sin espacios (!)", 8, 16);
+
+        getEmail(vec[indice].email,"Ingrese el email: ","(!) Error: ingrese un mail valido (!)", 5, 31);
+
+        getDate(&vec[indice].fechaAlta.anio, &vec[indice].fechaAlta.mes, &vec[indice].fechaAlta.dia, "alta:", 2005, 2020);
+
+        vec[indice].ocupado = 1;
+
+        printf("\n-- Socio dado de alta exitosamente --\n\n");
+
+        altaOk=1;
+    }
+
+    return altaOk;
+}
+// 13 -----------------------------------------------------------
+int buscarSocio(eSocio vec[], int tam, int id)
+{
+
+    int indice = -1;
+
+    for(int i=0; i < tam; i++)
+    {
+        if(vec[i].ocupado == 1 && vec[i].idS == id)
+        {
+            indice = i;
+            break;
+        }
+    }
+
+    return indice;
+}
+// 14 -----------------------------------------------------------
+void bajaSocio(eSocio vec[], int tam)
+{
+    int id;
+    int indice;
+    char confirm;
+
+    getInt(&id,"\nIngrese el carnet del socio a dar de baja: ","(!) No es un carnet valido (!)\n", 1, 5000);
+
+    indice = buscarSocio(vec, tam, id);
+
+    if( indice == -1)
+    {
+        printf("\n(!) No existe un socio con ese carnet (!)\n");
+    }
+    else
+    {
+        mostrarSocio(vec[indice]);
+        printf("\nDesea dar de baja al Socio? s/n: ");
+        confirm = getche();
+        if(tolower(confirm)=='s')
+        {
+            vec[indice].ocupado=0;
+            printf("\n-- Socio dado de baja exitosamente --\n");
+        }
+    }
+}
+// 15 -----------------------------------------------------------
+int altaPrestamos(eAutor autores[], int tamAutores, ePrestamo vecP[], int tamP, eSocio vecS[], int tamS, eLibro vecL[], int tamL, int idPMain, int idSMain)
+{
+    int indice;
+    int altaOk = 0;
+
+    indice = buscarPLibre(vecP, tamP);
+
+    if( indice == -1)
+    {
+        printf("\n(!) No hay lugar en el sistema (!)\n\n");
+    }
+    else
+    {
+        vecP[indice].idP = idPMain++;
+
+        mostrarSociosOrdenados(vecS, tamS);
+
+        getInt(&vecP[indice].idSocio,"\nIngrese el carnet del socio que retira el libro: ","(!) Carnet inexistente (!)", 1, idSMain);
+
+        mostrarLibrosOrdenados(autores, tamAutores, vecL, tamL);
+
+        getInt(&vecP[indice].idLibro,"\nIngrese el codigo del libro prestado: ","(!) Codigo inexistente (!)", 1, 2000);
+
+        getDate(&vecP[indice].fechaPrestamo.anio, &vecP[indice].fechaPrestamo.mes, &vecP[indice].fechaPrestamo.dia, "prestamo:", 2005, 2020);
+
+        vecP[indice].ocupado = 1;
+
+        printf("\n-- Prestamo dado de alta exitosamente --\n\n");
+
+        altaOk=1;
+    }
+
+    return altaOk;
+}
+// 16 -----------------------------------------------------------
+void modificarSocio(eSocio vec[], int tam)
+{
+    int id;
+    int indice;
+    int opcion;
+    char confirm;
+
+    system("cls");
+
+    printf("--- Modificacion de Socios ---\n\n");
+
+    getInt(&id,"\nIngrese el carnet del socio a modificar: ","(!) No es un carnet valido (!)\n", 1, 5000);
+
+    indice = buscarSocio(vec, tam, id);
+
+    if( indice == -1)
+    {
+        printf("\n(!) No existe un socio con ese carnet (!)\n\n");
+    }
+    else
+    {
+        printf("\n");
+        mostrarSocio(vec[indice]);
+        printf("\nDesea modificar este socio? s/n: ");
+        confirm = getche();
+        if(tolower(confirm)=='s')
+        {
+            printf("\n1- Modificar apellido\n");
+            printf("2- Modificar nombre\n");
+            printf("3- Modificar sexo\n");
+            printf("4- Modificar telefono\n");
+            printf("5- Modificar mail\n");
+            printf("6- Salir\n");
+
+            getInt(&opcion,"Ingrese una opcion: ","(!) Opcion invalida (!)", 1, 6);
+
+            switch(opcion)
+            {
+            case 1:
+                getName(vec[indice].apellido,"Ingrese el nuevo apellido: ","(!) Error: ingrese entre 2 y 31 letras y/o espacios (!)", 2, 31);
+
+                printf("\n-- Apellido modificado exitosamente --\n\n");
+
+                break;
+
+            case 2:
+                getName(vec[indice].nombre,"\n\nIngrese el nuevo nombre: ","(!) Error: ingrese entre 2 y 31 letras y/o espacios (!)", 2, 31);
+
+                printf("\n-- Nombre modificado exitosamente --\n\n");
+
+                break;
+
+            case 3:
+                getCharGender(&vec[indice].sexo,"Ingrese el nuevo sexo: ","(!) Error: ingrese f o m (!)");
+
+                printf("\n-- Sexo modificado exitosamente --\n\n");
+
+                break;
+
+            case 4:
+                getPhone(vec[indice].telefono,"Ingrese el nuevo telefono: ","(!) Error: ingrese entre 8 y 16 digitos sin espacios (!)", 8, 16);
+
+                printf("\n-- Telefono modificado exitosamente --\n\n");
+
+                break;
+
+            case 5:
+                getEmail(vec[indice].email,"Ingrese el nuevo email: ","(!) Error: ingrese un mail valido (!)", 5, 31);
+
+                printf("\n-- eMail modificado exitosamente --\n\n");
+
+                break;
+
+            case 6:
+                break;
+
+            default:
+                printf("\n Opcion invalida\n\n");
+            }
+        }
+    }
+}
+
+void listarPrestamosSocios(eSocio socios[], eLibro libros[], ePrestamo prestamos[], int cantSocios, int cantLibros)
+{
+    system("cls");
+    printf("\n--- Listado de Prestamos ---\n\n");
+    for(int i = 0; i < cantLibros; i++)
+    {
+        if(libros[i].ocupado)
+        {
+            for(int j = 0; j<(cantSocios * cantLibros); j++ )
+            {
+                if((prestamos[j].ocupado) && (libros[i].idL == prestamos[j].idLibro))
+                {
+                    for(int k = 0; k < cantSocios; k++ )
+                    {
+                        if((socios[k].ocupado) && (prestamos[j].idSocio == socios[k].idS))
+                        {
+                            printf("%d %s %s", socios[k].idS, socios[k].nombre, socios[i].apellido,libros[i].titulo,prestamos[j].fechaPrestamo);
+                        }
+                    }//Cierre for(int k = 0; k < cantSocios; k++ )
+                }//Cierre if((prestamos[j].ocupado) && (libros[i].idL == prestamos[j].idLibro))
+            }//Cierre 2do For
+        }//Cierre if(libros[i].ocupado)
+    }//Cierre 1er For
+
+}

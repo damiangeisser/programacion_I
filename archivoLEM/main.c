@@ -46,7 +46,7 @@ int main (void)
 
         printf("\nPresione ESC para terminar");
     }
-    while((getche())!=ESC);
+    while((getche())!=27);
 
     /* Busqueda */
     system("cls");

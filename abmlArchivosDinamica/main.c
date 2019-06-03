@@ -34,7 +34,7 @@ char exitChar='n';
 
         case 3:
             //printf("\nModificar empleado\n");
-            //buscarEmpleado(PATH);
+            //buscarEmpleado(PATH,2);
             system("pause");
             break;
 
