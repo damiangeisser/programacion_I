@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1559570516 source:d:\dg\programacion_i\listartxtcsv\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
