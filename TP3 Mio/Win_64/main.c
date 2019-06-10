@@ -21,98 +21,133 @@
 
 int main()
 {
-    int option = 0;
+    char exitChar='n';
+
     LinkedList* listaEmpleados = ll_newLinkedList();
-   /* do{
-        switch(option)
+
+    do
+    {
+        switch(employee_menu())
         {
-            case 1:
-              //  controller_loadFromText("data.csv",listaEmpleados);
-                break;
+        case 1:
+            controller_loadFromText("data.csv",listaEmpleados);
+            system("pause");
+            break;
+        case 2:
+            //controller_loadFromBinary("pruebabinaria.bin",listaEmpleados);
+           // controller_loadFromText("data.bin",listaEmpleados);
+           system("pause");
+            break;
+        case 3:
+            printf("\nAlta Empleados\n");
+            system("pause");
+            break;
+        case 4:
+            printf("\nModificar Empleados\n");
+            system("pause");
+            break;
+        case 5:
+           // printf("\nBaja Empleados\n");
+            controller_removeEmployee(listaEmpleados);
+            system("pause");
+            break;
+        case 6:
+            controller_ListEmployee(listaEmpleados);
+            system("pause");
+            break;
+        case 7:
+            printf("\nOrdenar Empleados\n");
+            system("pause");
+            break;
+        case 8:
+            printf("\nGuardar en CSV\n");
+            //controller_saveAsText("prueba.csv" , listaEmpleados);
+            system("pause");
+            break;
+        case 9:
+            printf("\nGuardar en BIN\n");
+            //controller_saveAsBinary("pruebabinaria.bin", listaEmpleados);
+            system("pause");
+            break;
+        case 10:
+            printf("\nConfirma la salida del programa? s/n: ");
+            fflush(stdin);
+            exitChar = getche();
 
+            if(tolower(exitChar) == 's')
+            {
+                ll_deleteLinkedList(listaEmpleados);
+                printf("\n\n- Programa finalizado -\n");
+            }
+            break;
 
+        default:
+            printf("\n Opcion invalida\n\n");
+            system("pause");
         }
-    }while(option != 10);*/
-    // Harcodeo 3 empleados
-    Employee* emp1 = employee_newParametros("1234", "Juan", "234", "25000");
-    Employee* emp2 = employee_newParametros("2222", "Julia", "100", "15000");
-    Employee* emp3 = employee_newParametros("1111", "Juana", "340", "35000");
-    Employee* emp4 = employee_newParametros("5555", "Sofia", "210", "23000");
-
-
-    // Muestro la cantida de elementos dentro de la lista ----> 0
-    printf("Cantidad elementos: %d\n", ll_len(listaEmpleados));
-    // agrego un empleado a la lista
-    if(ll_add(listaEmpleados, emp1)== 0){
-        printf("Se ha agregado el empleado con exito a la lista\n");
-    }
-
-     printf("Cantidad elementos: %d\n", ll_len(listaEmpleados));
-
-     if(ll_add(listaEmpleados, emp2)== 0){
-        printf("Se ha agregado el empleado con exito a la lista\n");
-    }
-
-     printf("Cantidad elementos: %d\n", ll_len(listaEmpleados));
-
-     if(ll_add(listaEmpleados, emp3)== 0){
-        printf("Se ha agregado el empleado con exito a la lista\n");
-    }
-
-     printf("Cantidad elementos: %d\n", ll_len(listaEmpleados));
-
-
-     mostrarEmpleado( (Employee*) ll_get(listaEmpleados,1));
-
-
-
-     if(ll_push(listaEmpleados, 1, emp4)== 0){
-        printf("Se ha agregado el empleado con exito a la lista\n");
 
     }
+while(exitChar != 's');
 
-     printf("Cantidad elementos: %d\n", ll_len(listaEmpleados));
-
-
-       mostrarEmpleado( (Employee*) ll_get(listaEmpleados,1));
-
-         mostrarEmpleado( (Employee*) ll_get(listaEmpleados,2));
-
-
- printf("----------------------------------------------\n\n");
-
- for(int i = 0; i < ll_len(listaEmpleados); i++){
-
-       mostrarEmpleado( (Employee*) ll_get(listaEmpleados,i));
-
- }
-
- printf("Ordeno la lista por sueldo\n\n");
-
- //ll_sort(listaEmpleados,ordenarXHoras, 0);
-
- for(int i = 0; i < ll_len(listaEmpleados); i++){
-
-       mostrarEmpleado( (Employee*) ll_get(listaEmpleados,i));
-
- }
+printf("Cantidad elementos: %d\n", ll_len(listaEmpleados));
+// agrego un empleado a la lista
+//    if(ll_add(listaEmpleados, emp1)== 0){
+//        printf("Se ha agregado el empleado con exito a la lista\n");
+//    }
+//
+//     printf("Cantidad elementos: %d\n", ll_len(listaEmpleados));
+//
+//     if(ll_add(listaEmpleados, emp2)== 0){
+//        printf("Se ha agregado el empleado con exito a la lista\n");
+//    }
+//
+//     printf("Cantidad elementos: %d\n", ll_len(listaEmpleados));
+//
+//     if(ll_add(listaEmpleados, emp3)== 0){
+//        printf("Se ha agregado el empleado con exito a la lista\n");
+//    }
+//
+//     printf("Cantidad elementos: %d\n", ll_len(listaEmpleados));
 
 
+//     mostrarEmpleado((Employee*) ll_get(listaEmpleados,1));
+//
+//
+//
+//     if(ll_push(listaEmpleados, 1, emp4)== 0){
+//        printf("Se ha agregado el empleado con exito a la lista\n");
+//
+//    }
+//
+//     printf("Cantidad elementos: %d\n", ll_len(listaEmpleados));
+//
+//
+//       mostrarEmpleado( (Employee*) ll_get(listaEmpleados,1));
+//
+//         mostrarEmpleado( (Employee*) ll_get(listaEmpleados,2));
+//
+//
+// printf("----------------------------------------------\n\n");
+//
+// for(int i = 0; i < ll_len(listaEmpleados); i++){
+//
+//       mostrarEmpleado( (Employee*) ll_get(listaEmpleados,i));
+//
+// }
+//
+// printf("Ordeno la lista por sueldo\n\n");
+//
+// //ll_sort(listaEmpleados,ordenarXHoras, 0);
+//
+// for(int i = 0; i < ll_len(listaEmpleados); i++){
+//
+//       mostrarEmpleado((Employee*) ll_get(listaEmpleados,i));
+//
+// }
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    return 0;
+return 0;
 }

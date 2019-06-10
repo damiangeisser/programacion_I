@@ -28,4 +28,6 @@ void mostrarEmpleado(Employee* emp);//Hecho
 int ordenarXSueldo( void* emp1, void* emp2);
 int ordenarXHoras( void* emp1, void* emp2);
 
+int employee_menu();
+
 #endif // employee_H_INCLUDED

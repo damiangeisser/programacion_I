@@ -150,32 +150,53 @@ void mostrarEmpleado(Employee* emp)
         printf("%d  %s  %d  %d\n", emp->id, emp->nombre, emp->horasTrabajadas, emp->sueldo);
     }
 }
+int employee_menu(){
+ int option;
 
-int ordenarXSueldo(void* emp1, void* emp2)
-{
-    Employee* pEmp1;
-    Employee* pEmp2;
-    Employee* pEmpAux;
+    system("cls");
+    printf("  --- ABM Empleados ---\n\n");
+    printf("1. Cargar los datos de los empleados desde el archivo data.csv (modo texto)\n");
+    printf("2. Cargar los datos de los empleados desde el archivo data.bin (modo binario)\n");
+    printf("3. Alta de un empleado\n");
+    printf("4. Modificar datos de un empleado\n");
+    printf("5. Baja de empleado\n");
+    printf("6. Listar empleados\n");
+    printf("7. Ordenar empleados\n");
+    printf("8. Guardar los datos de los empleados en el archivo data.csv (modo texto)\n");
+    printf("9. Guardar los datos de los empleados en el archivo data.bin (modo binario)\n");
+    printf("10. Salir\n");
+    getInt(&option,"Ingrese una opcion: ","(!) Opcion invalida (!)", 1, 10);
 
-    int bubble = 0;
-
-    if( emp1 != NULL && emp2 != NULL)
-    {
-        pEmp1 = (Employee*) emp1;
-        pEmp2 = (Employee*) emp2;
-
-        if( pEmp1->sueldo > pEmp2-> sueldo)
-        {
-            pEmpAux = pEmp1;
-            pEmp1 = pEmp2;
-            pEmp2 = pEmpAux;
-
-            bubble = 1;
-        }
-    }
-
-    return bubble;
+    return option;
 }
+
+
+
+//int ordenarXSueldo(void* emp1, void* emp2)
+//{
+//    Employee* pEmp1;
+//    Employee* pEmp2;
+//    Employee* pEmpAux;
+//
+//    int bubble = 0;
+//
+//    if( emp1 != NULL && emp2 != NULL)
+//    {
+//        pEmp1 = (Employee*) emp1;
+//        pEmp2 = (Employee*) emp2;
+//
+//        if( pEmp1->sueldo > pEmp2-> sueldo)
+//        {
+//            pEmpAux = pEmp1;
+//            pEmp1 = pEmp2;
+//            pEmp2 = pEmpAux;
+//
+//            bubble = 1;
+//        }
+//    }
+//
+//    return bubble;
+//}
 
 //int ordenarXHoras( void* emp1, void* emp2)
 //{
