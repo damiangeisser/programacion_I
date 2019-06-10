@@ -77,7 +77,7 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)//Revi
         printf("(!) No se pudo abrir el archivo binario (!)\n");
         system("pause");
     }
-    empAux = employee_new();
+
 
     if(empAux == NULL)
     {
@@ -87,6 +87,7 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)//Revi
 
     while(!feof(fBIN))
     {
+        empAux = employee_new();
         qty=fread(empAux,sizeof(Employee),1,fBIN);
 
         if(qty!=1)

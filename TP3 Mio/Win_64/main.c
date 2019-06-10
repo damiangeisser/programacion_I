@@ -34,7 +34,7 @@ int main()
             system("pause");
             break;
         case 2:
-            //controller_loadFromBinary("pruebabinaria.bin",listaEmpleados);
+            controller_loadFromBinary("pruebabinaria.bin",listaEmpleados);
            // controller_loadFromText("data.bin",listaEmpleados);
            system("pause");
             break;
