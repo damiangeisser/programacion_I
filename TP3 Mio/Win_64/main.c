@@ -18,7 +18,6 @@
     10. Salir
 *****************************************************/
 
-
 int main()
 {
     char exitChar='n';
@@ -27,127 +26,49 @@ int main()
 
     do
     {
-        switch(employee_menu())
+        switch(controller_menu())
         {
         case 1:
-            controller_loadFromText("data.csv",listaEmpleados);
-            system("pause");
+            controller_loadFromText("prueba.csv",listaEmpleados);
             break;
         case 2:
-            controller_loadFromBinary("pruebabinaria.bin",listaEmpleados);
-           // controller_loadFromText("data.bin",listaEmpleados);
-           system("pause");
+            controller_loadFromBinary("prueba.bin",listaEmpleados);
+            // controller_loadFromBinary("data.bin",listaEmpleados);
             break;
         case 3:
-            printf("\nAlta Empleados\n");
-            system("pause");
+            controller_addEmployee(listaEmpleados);
             break;
         case 4:
-            printf("\nModificar Empleados\n");
-            system("pause");
+            controller_editEmployee(listaEmpleados);
             break;
         case 5:
-           // printf("\nBaja Empleados\n");
             controller_removeEmployee(listaEmpleados);
-            system("pause");
             break;
         case 6:
             controller_ListEmployee(listaEmpleados);
-            system("pause");
             break;
         case 7:
-            printf("\nOrdenar Empleados\n");
-            system("pause");
+            controller_sortEmployee(listaEmpleados);
             break;
         case 8:
-            printf("\nGuardar en CSV\n");
-            //controller_saveAsText("prueba.csv" , listaEmpleados);
-            system("pause");
+            controller_saveAsText("prueba.csv" , listaEmpleados);
+            //controller_saveAsText("data.csv" , listaEmpleados);
             break;
         case 9:
             printf("\nGuardar en BIN\n");
-            //controller_saveAsBinary("pruebabinaria.bin", listaEmpleados);
+            controller_saveAsBinary("prueba.bin", listaEmpleados);
+            //controller_saveAsBinary("data.bin", listaEmpleados);
             system("pause");
             break;
         case 10:
-            printf("\nConfirma la salida del programa? s/n: ");
-            fflush(stdin);
-            exitChar = getche();
-
-            if(tolower(exitChar) == 's')
-            {
-                ll_deleteLinkedList(listaEmpleados);
-                printf("\n\n- Programa finalizado -\n");
-            }
+            exitChar=controller_exit(listaEmpleados);
             break;
-
         default:
             printf("\n Opcion invalida\n\n");
             system("pause");
         }
-
     }
-while(exitChar != 's');
+    while(exitChar != 's');
 
-printf("Cantidad elementos: %d\n", ll_len(listaEmpleados));
-// agrego un empleado a la lista
-//    if(ll_add(listaEmpleados, emp1)== 0){
-//        printf("Se ha agregado el empleado con exito a la lista\n");
-//    }
-//
-//     printf("Cantidad elementos: %d\n", ll_len(listaEmpleados));
-//
-//     if(ll_add(listaEmpleados, emp2)== 0){
-//        printf("Se ha agregado el empleado con exito a la lista\n");
-//    }
-//
-//     printf("Cantidad elementos: %d\n", ll_len(listaEmpleados));
-//
-//     if(ll_add(listaEmpleados, emp3)== 0){
-//        printf("Se ha agregado el empleado con exito a la lista\n");
-//    }
-//
-//     printf("Cantidad elementos: %d\n", ll_len(listaEmpleados));
-
-
-//     mostrarEmpleado((Employee*) ll_get(listaEmpleados,1));
-//
-//
-//
-//     if(ll_push(listaEmpleados, 1, emp4)== 0){
-//        printf("Se ha agregado el empleado con exito a la lista\n");
-//
-//    }
-//
-//     printf("Cantidad elementos: %d\n", ll_len(listaEmpleados));
-//
-//
-//       mostrarEmpleado( (Employee*) ll_get(listaEmpleados,1));
-//
-//         mostrarEmpleado( (Employee*) ll_get(listaEmpleados,2));
-//
-//
-// printf("----------------------------------------------\n\n");
-//
-// for(int i = 0; i < ll_len(listaEmpleados); i++){
-//
-//       mostrarEmpleado( (Employee*) ll_get(listaEmpleados,i));
-//
-// }
-//
-// printf("Ordeno la lista por sueldo\n\n");
-//
-// //ll_sort(listaEmpleados,ordenarXHoras, 0);
-//
-// for(int i = 0; i < ll_len(listaEmpleados); i++){
-//
-//       mostrarEmpleado((Employee*) ll_get(listaEmpleados,i));
-//
-// }
-
-
-
-
-
-return 0;
+    return 0;
 }
