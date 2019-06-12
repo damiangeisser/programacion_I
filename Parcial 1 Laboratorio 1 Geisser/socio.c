@@ -109,9 +109,6 @@ void mostrarSociosOrdenados(eSocio vec[], int tam)
         printf("\n(!) No hay socios que mostrar (!)\n");
     }
 }
-
-
-
 // 6 -----------------------------------------------------------
 void mostrarLibrosOrdenados(eAutor autores[], int tamAutores, eLibro vec[], int tam)
 {
@@ -443,7 +440,7 @@ void modificarSocio(eSocio vec[], int tam)
         }
     }
 }
-
+// 17 -----------------------------------------------------------
 void listarPrestamosSocios(eSocio socios[], eLibro libros[], ePrestamo prestamos[], int cantSocios, int cantLibros)
 {
     system("cls");
@@ -467,5 +464,8 @@ void listarPrestamosSocios(eSocio socios[], eLibro libros[], ePrestamo prestamos
             }//Cierre 2do For
         }//Cierre if(libros[i].ocupado)
     }//Cierre 1er For
-
 }
+
+
+//int cantidadDePrestamos(ePrestamo prestamos[])
+

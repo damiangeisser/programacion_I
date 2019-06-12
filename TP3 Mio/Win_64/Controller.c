@@ -324,10 +324,11 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
 int controller_sortEmployee(LinkedList* pArrayListEmployee)
 {
 
+    int error = 1;
     int listLimit;
-    Employee* pEmpA;
-    Employee* pEmpB;
-    Employee* pEmpAux;
+    Employee* pEmpA = employee_new();
+    Employee* pEmpB = employee_new();
+    Employee* pEmpAux = employee_new();
 
     listLimit=ll_len(pArrayListEmployee);//Determino el tamaño de la lista.
 
@@ -336,7 +337,7 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
         printf("\n(!) No existen empleados cargados en el sistema (!)\n");
         system("pause");
     }
-    else
+    else if (pEmpA!=NULL && pEmpB != NULL && pEmpB!=NULL)
     {
         for(int i=0; i<listLimit; i++)
         {
@@ -347,9 +348,9 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
 
                 if(strcmp(pEmpA->nombre,pEmpB->nombre)>0)
                 {
-                    pEmpAux=pEmpA;
-                    pEmpA=pEmpB;
-                    pEmpB=pEmpAux;
+                    *pEmpAux=*pEmpA;
+                    *pEmpA=*pEmpB;
+                    *pEmpB=*pEmpAux;
                 }//strcmp
             }//for j
         }//for i

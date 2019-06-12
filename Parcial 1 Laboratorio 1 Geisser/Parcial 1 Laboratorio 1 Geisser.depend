@@ -27,3 +27,31 @@
 	"input.h"
 	"socio.h"
 
+1560339508 source:d:\dg\programacion_i\parcial 1 laboratorio 1 geisser\input.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+
+1560339508 source:d:\dg\programacion_i\parcial 1 laboratorio 1 geisser\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"input.h"
+	"socio.h"
+
+1560339508 d:\dg\programacion_i\parcial 1 laboratorio 1 geisser\input.h
+
+1560339508 d:\dg\programacion_i\parcial 1 laboratorio 1 geisser\socio.h
+
+1560339508 source:d:\dg\programacion_i\parcial 1 laboratorio 1 geisser\socio.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"input.h"
+	"socio.h"
+
