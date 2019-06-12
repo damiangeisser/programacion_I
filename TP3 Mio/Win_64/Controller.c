@@ -9,6 +9,8 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
 {
     FILE* fCSV;
 
+    //pasar a parser la lectura del archivo.
+
     char buffer[4][20];
     int qty;
     int error=1;
@@ -68,6 +70,8 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
 int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)//Revisar
 {
     FILE* fBIN;
+
+     //pasar a parser la lectura del archivo.
 
     int error=1;
     int qty;
