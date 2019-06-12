@@ -143,34 +143,17 @@ void* ll_get(LinkedList* this, int index)
 {
     void* returnAux = NULL;
 
-    //Node* nodeAux;
-    //int limit =ll_len(this);
-
-    //limit=limit-1;
-
     if(this!=NULL && index>=0 && index < ll_len(this))
     {
         if(index==0)
         {
             returnAux = this->pFirstNode->pElement;
         }
-//        else if(index==ll_len(this))
-//        {
-//            returnAux = &getNode(this,limit)->pNextNode->pElement;
-//            //returnAux= returnAux->pElement;
-//        }
         else
         {
-//            nodeAux=getNode(this,index);
-//            returnAux = nodeAux->pElement;
-
             returnAux=getNode(this,index)->pElement;
-           // returnAux = nodeAux->pElement;
         }
-
-
     }
-
      return returnAux;
 }
 
@@ -178,6 +161,16 @@ void* ll_get(LinkedList* this, int index)
 int ll_set(LinkedList* this, int index,void* pElement)
 {
     int returnAux = -1;
+    void* elementAux;
+
+
+    if(this!=NULL && index>0 && index < ll_len(this)){
+
+       // ll_get(this,index)=*pElement;
+        elementAux=ll_get(this,index);
+        elementAux=pElement;
+        returnAux = 0;
+    }
 
     return returnAux;
 }
