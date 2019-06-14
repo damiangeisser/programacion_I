@@ -8,23 +8,22 @@ typedef struct
     int sueldo;
 }Employee;
 
-Employee* employee_new();//Hecho
-Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr, char* sueldoStr);//Hecho
+Employee* employee_new();
+Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr, char* sueldoStr);
 void employee_delete();
 
-int employee_setId(Employee* this,int id);//Hecho
-int employee_getId(Employee* this,int* id);//Hecho
+int employee_setId(Employee* this,int id);
+int employee_getId(Employee* this,int* id);
 
-int employee_setNombre(Employee* this,char* nombre);//Hecho
-int employee_getNombre(Employee* this,char* nombre);//Hecho
+int employee_setNombre(Employee* this,char* nombre);
+int employee_getNombre(Employee* this,char* nombre);
 
-int employee_setHorasTrabajadas(Employee* this,int horasTrabajadas);//Hecho
-int employee_getHorasTrabajadas(Employee* this,int* horasTrabajadas);//Hecho
+int employee_setHorasTrabajadas(Employee* this,int horasTrabajadas);
+int employee_getHorasTrabajadas(Employee* this,int* horasTrabajadas);
 
-int employee_setSueldo(Employee* this,int sueldo);//Hecho
-int employee_getSueldo(Employee* this,int* sueldo);//Hecho
-
-void mostrarEmpleado(Employee* emp);//Hecho
+int employee_setSueldo(Employee* this,int sueldo);
+int employee_getSueldo(Employee* this,int* sueldo);
+void mostrarEmpleado(Employee* emp);
 int ordenarXSueldo( void* emp1, void* emp2);
 int ordenarXHoras( void* emp1, void* emp2);
 

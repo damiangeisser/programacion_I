@@ -4,17 +4,13 @@
 #include "inputDin.h"
 #include "LinkedList.h"
 #include "Employee.h"
+#include "parser.h"
 
 int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
 {
     FILE* fCSV;
 
-    //pasar a parser la lectura del archivo.
-
-    char buffer[4][20];
-    int qty;
-    int error=1;
-    Employee* empAux;
+    int loadCheck;
 
     fCSV = fopen(path,"r");
 
@@ -23,40 +19,15 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
         printf(" (!) No se pudo abrir el archivo de texto (!)\n");
         system("pause");
     }
-
-    fscanf(fCSV, "%[^,],%[^,],%[^,],%5s", buffer[0], buffer[1], buffer[2], buffer[3]);//Lectura fantasma encabezados.
-
-    while(!feof(fCSV))
+    else
     {
-        qty = fscanf(fCSV, "%[^,],%[^,],%[^,],%5s",buffer[0],buffer[1],buffer[2],buffer[3]);
 
-        if(qty < 4)
-        {
-            if(feof(fCSV))
-            {
-                break;
-            }
-            else
-            {
-                printf("(!) No se leyo correctamente el ultimo registro (!)");
-                system("pause");
-                break;
-            }
-        }
-
-        empAux = employee_newParametros(buffer[0],buffer[1],buffer[2],buffer[3]);
-
-        if (empAux!=NULL)
-        {
-            ll_add(pArrayListEmployee, empAux);
-
-            error=0;
-        }
+        loadCheck = parser_EmployeeFromText(fCSV,pArrayListEmployee);
     }
 
     fclose(fCSV);
 
-    if(!error)
+    if(loadCheck)
     {
 
         printf("\n>> Archivo de texto cargado exitosamente <<\n");
@@ -71,11 +42,7 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)//Revi
 {
     FILE* fBIN;
 
-     //pasar a parser la lectura del archivo.
-
-    int error=1;
-    int qty;
-    Employee* empAux;
+    int loadCheck=1;
 
     fBIN = fopen(path,"rb");
 
@@ -84,41 +51,15 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)//Revi
         printf("(!) No se pudo abrir el archivo binario (!)\n");
         system("pause");
     }
-
-    while(!feof(fBIN))
+    else
     {
-        empAux = employee_new();
-
-        if(empAux == NULL)
-        {
-            printf("(!) Error en memoria dinamica (!)\n");
-            system("pause");
-            break;
-        }
-
-        qty=fread(empAux,sizeof(Employee),1,fBIN);
-
-        if(qty!=1)
-        {
-            if(feof(fBIN))
-            {
-                break;
-            }
-            else
-            {
-                printf("\n(!) No se leyo correctamente el ultimo registro (!)\n");
-                system("pause");
-                error=1;
-                break;
-            }
-        }
-        ll_add(pArrayListEmployee, empAux);
-        error=0;
+        loadCheck = parser_EmployeeFromBinary(fBIN,pArrayListEmployee);
     }
+
 
     fclose(fBIN);
 
-    if(!error)
+    if(loadCheck)
     {
 
         printf("\n>> Archivo binario cargado exitosamente <<\n");
@@ -328,7 +269,6 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
 int controller_sortEmployee(LinkedList* pArrayListEmployee)
 {
 
-    int error = 1;
     int listLimit;
     Employee* pEmpA = employee_new();
     Employee* pEmpB = employee_new();
@@ -358,56 +298,12 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
                 }//strcmp
             }//for j
         }//for i
+
+        printf("\n>> Lista ordenada alfabeticamente con exito <<\n");
+        system("pause");
+
     }//else
 
-//----------------------------------------------------------------------------
-
-//    int listLimit;
-//    void* pEmpA;
-//    void* pEmpB;
-//    int (*pFunction)(void*, void*);//Puntero a función.
-//
-//    listLimit=ll_len(pArrayListEmployee);
-//
-//    if(!listLimit)
-//    {
-//        printf("\n(!) No existen empleados cargados en el sistema (!)\n");
-//        system("pause");
-//    }
-//    else
-//    {
-//        pFunction=&employee_sortByName;
-//
-//        pEmpA=employee_new();
-//        pEmpB=employee_new();
-//
-//        if(pFunction==NULL)
-//        {
-//            printf("\nFalla en pFunction\n");
-//            system("pause");
-//        }
-//        if (pEmpA==NULL)
-//        {
-//            printf("\nFalla pEmpA\n");
-//            system("pause");
-//        }
-//        if (pEmpB==NULL)
-//        {
-//            printf("\nFalla pEmpB\n");
-//            system("pause");
-//        }
-//
-//        printf("\nSin falla en los punteros\n");
-//        system("pause");
-//
-//        ll_sort(pArrayListEmployee,(*pFunction)(pEmpA,pEmpB), 1);
-//
-//    }
-
-//----------------------------------------------------------------------------
-
-    printf("\nSe ejecuto ordernar.\n");
-    system("pause");
     return 1;
 }
 

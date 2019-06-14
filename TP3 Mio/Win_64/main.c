@@ -29,11 +29,10 @@ int main()
         switch(controller_menu())
         {
         case 1:
-            controller_loadFromText("prueba.csv",listaEmpleados);
+            controller_loadFromText("data.csv",listaEmpleados);
             break;
         case 2:
-            controller_loadFromBinary("prueba.bin",listaEmpleados);
-            // controller_loadFromBinary("data.bin",listaEmpleados);
+            controller_loadFromBinary("data.bin",listaEmpleados);
             break;
         case 3:
             controller_addEmployee(listaEmpleados);
@@ -51,14 +50,10 @@ int main()
             controller_sortEmployee(listaEmpleados);
             break;
         case 8:
-            controller_saveAsText("prueba.csv" , listaEmpleados);
-            //controller_saveAsText("data.csv" , listaEmpleados);
+            controller_saveAsText("data.csv" , listaEmpleados);
             break;
         case 9:
-            printf("\nGuardar en BIN\n");
-            controller_saveAsBinary("prueba.bin", listaEmpleados);
-            //controller_saveAsBinary("data.bin", listaEmpleados);
-            system("pause");
+            controller_saveAsBinary("data.bin", listaEmpleados);
             break;
         case 10:
             exitChar=controller_exit(listaEmpleados);
