@@ -475,6 +475,25 @@ LinkedList* ll_subList(LinkedList* this,int from,int to)
 {
     LinkedList* cloneArray = NULL;
 
+    void* pElementAux = NULL;
+
+    if(this !=NULL && from >= 0 && to <= ll_len(this))
+    {
+        cloneArray = ll_newLinkedList();
+
+        if ( cloneArray != NULL )
+        {
+            for(int i = from; i<=to; i++)
+            {
+                pElementAux=ll_get(this, i);
+
+                if (pElementAux != NULL )
+                {
+                    ll_add(cloneArray,pElementAux);
+                }
+            }
+        }
+    }
     return cloneArray;
 }
 
@@ -482,16 +501,50 @@ LinkedList* ll_clone(LinkedList* this)
 {
     LinkedList* cloneArray = NULL;
 
+
+    cloneArray = ll_subList(this,0,ll_len(this));
+
+
     return cloneArray;
 }
-
-
 
 int ll_sort(LinkedList* this, int (*pFunc)(void*,void*), int order)
 {
     int returnAux =-1;
 
-    return returnAux;
+    void* pElementAux1;
+    void* pElementAux2;
+    void* pElementAux3;
+    int comparacion;
 
+    if(this != NULL && pFunc!=NULL && (order==0 || order==1 ))
+    {
+        for(int i = 0; i<ll_len(this); i++)
+        {
+            for(int j=i+1; j<ll_len(this); j++)
+            {
+                pElementAux1=ll_get(this, i);
+                pElementAux2=ll_get(this, j);
+
+                comparacion=pFunc(pElementAux1,pElementAux2);
+
+                if(order==1 && comparacion== 1)//Ascendente
+                {
+                    pElementAux3=pElementAux1;
+                    ll_set(this, i, pElementAux2);
+                    ll_set(this, j, pElementAux3);
+                }
+                if(order==0 && comparacion==-1)//Descendente
+                {
+                    pElementAux3=pElementAux1;
+                    ll_set(this, i, pElementAux2);
+                    ll_set(this, j, pElementAux3);
+                }
+            }
+        }
+        returnAux=0;
+    }
+
+    return returnAux;
 }
 
