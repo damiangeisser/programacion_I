@@ -24,13 +24,6 @@ LinkedList* ll_newLinkedList(void)
     }
     return this;
 }
-
-/** \brief Retorna la cantidad de elementos de la lista
- *
- * \param this LinkedList* Puntero a la lista
- * \return int Retorna (-1) si el puntero es NULL o la cantidad de elementos de la lista
- *
- */
 int ll_len(LinkedList* this)
 {
 
@@ -42,8 +35,6 @@ int ll_len(LinkedList* this)
 
     return returnAux;
 }
-
-
 /** \brief  Obtiene un nodo de la lista
  *
  * \param this LinkedList* Puntero a la lista
@@ -68,12 +59,10 @@ static Node* getNode(LinkedList* this, int nodeIndex)
 
     return pNode;
 }
-
 Node* test_getNode(LinkedList* this, int nodeIndex)
 {
     return getNode(this, nodeIndex);
 }
-
 static int addNode(LinkedList* this, int nodeIndex,void* pElement)
 {
     int returnAux = -1;
@@ -154,27 +143,27 @@ void* ll_get(LinkedList* this, int index)
             returnAux=getNode(this,index)->pElement;
         }
     }
-     return returnAux;
+    return (void*)returnAux;
 }
-
 
 int ll_set(LinkedList* this, int index,void* pElement)
 {
     int returnAux = -1;
-    void* elementAux;
+    Node* nodoAux = NULL;
 
+    if(this != NULL && index >=0 && index < ll_len(this) )
+    {
+        nodoAux = getNode(this,index);
 
-    if(this!=NULL && index>0 && index < ll_len(this)){
-
-       // ll_get(this,index)=*pElement;
-        elementAux=ll_get(this,index);
-        elementAux=pElement;
-        returnAux = 0;
+        if(nodoAux != NULL)
+        {
+            nodoAux->pElement = pElement ;
+        }
+        returnAux=0;
     }
 
     return returnAux;
 }
-
 
 /** \brief Elimina un elemento de la lista
  *
@@ -188,9 +177,34 @@ int ll_remove(LinkedList* this,int index)
 {
     int returnAux = -1;
 
+    Node* prev;
+    Node* next;
+
+    if(this != NULL)
+    {
+        if(index >= 0 && index < ll_len(this))
+        {
+            if(index==0)
+            {
+                next=getNode(this, (index+1));
+                this->pFirstNode=next;
+
+            }
+            else
+            {
+                prev=getNode(this, (index-1));
+                next=getNode(this, (index+1));
+                prev->pNextNode=next;
+            }
+
+            this->size--;
+            returnAux = 0;
+        }
+    }
+
+
     return returnAux;
 }
-
 
 /** \brief Elimina todos los elementos de la lista
  *
@@ -203,9 +217,16 @@ int ll_clear(LinkedList* this)
 {
     int returnAux = -1;
 
+    if(this!=NULL)
+    {
+
+        for(int i=0; i<ll_len(this); i++)
+        {
+            returnAux=ll_remove(this,i);
+        }
+    }
     return returnAux;
 }
-
 
 /** \brief Elimina todos los elementos de la lista y la lista
  *
@@ -217,6 +238,14 @@ int ll_clear(LinkedList* this)
 int ll_deleteLinkedList(LinkedList* this)
 {
     int returnAux = -1;
+
+    if(this!=NULL)
+    {
+
+        returnAux=ll_clear(this);
+
+        free(this);
+    }
 
     return returnAux;
 }
@@ -232,7 +261,21 @@ int ll_deleteLinkedList(LinkedList* this)
 int ll_indexOf(LinkedList* this, void* pElement)
 {
     int returnAux = -1;
+    void* elementAux;
 
+    if(this!=NULL)
+    {
+
+        for(int i=0; i<ll_len(this); i++)
+        {
+            elementAux=ll_get(this,i);
+
+            if(elementAux==pElement)
+            {
+                returnAux=i;
+            }
+        }
+    }
     return returnAux;
 }
 
@@ -248,6 +291,17 @@ int ll_isEmpty(LinkedList* this)
 {
     int returnAux = -1;
 
+    if(this!=NULL)
+    {
+        if(ll_len(this)==0)
+        {
+            returnAux=1;
+        }
+        else
+        {
+            returnAux=0;
+        }
+    }
     return returnAux;
 }
 
@@ -263,6 +317,46 @@ int ll_isEmpty(LinkedList* this)
 int ll_push(LinkedList* this, int index, void* pElement)
 {
     int returnAux = -1;
+
+    Node* prev;
+    Node* next;
+    Node* nuevoNodo;
+
+    if( this != NULL)
+    {
+        if(index >= 0 && index <= ll_len(this))
+        {
+            nuevoNodo = (Node*)malloc(sizeof(Node));
+            if(nuevoNodo != NULL)
+            {
+                nuevoNodo->pElement = pElement;
+                nuevoNodo->pNextNode = NULL;
+
+                if(index == 0)
+                {
+                    nuevoNodo->pNextNode = this->pFirstNode;
+                    this->pFirstNode = nuevoNodo;
+                }
+                else
+                {
+                    prev = this->pFirstNode;
+                    next = prev->pNextNode;
+
+                    while( index > 1)
+                    {
+                        prev  = next;
+                        next  = prev->pNextNode;
+                        index--;
+                    }
+
+                    prev->pNextNode = nuevoNodo;
+                    nuevoNodo->pNextNode = next;
+                }
+                this->size++;
+                returnAux = 0;
+            }
+        }
+    }
 
     return returnAux;
 }
@@ -280,9 +374,14 @@ void* ll_pop(LinkedList* this,int index)
 {
     void* returnAux = NULL;
 
+    if(this!=NULL && index>=0 && index < ll_len(this))
+    {
+        returnAux=getNode(this,index)->pElement;
+        ll_remove(this,index);
+    }
+
     return returnAux;
 }
-
 
 /** \brief  Determina si la lista contiene o no el elemento pasado como parametro
  *
@@ -295,6 +394,18 @@ void* ll_pop(LinkedList* this,int index)
 int ll_contains(LinkedList* this, void* pElement)
 {
     int returnAux = -1;
+
+    if(this!=NULL)
+    {
+        if(ll_indexOf(this,pElement)==-1)
+        {
+            returnAux=0;
+        }
+        else
+        {
+            returnAux=1;
+        }
+    }
 
     return returnAux;
 }
@@ -311,6 +422,41 @@ int ll_contains(LinkedList* this, void* pElement)
 int ll_containsAll(LinkedList* this,LinkedList* this2)
 {
     int returnAux = -1;
+    int flagNoHallado = 0;
+    int flagDiferente = 0;
+    int indexAux;
+    void* elementAux;
+
+    if(this!=NULL && this2!=NULL)
+    {
+        returnAux=1;
+
+        for(int i=0; i<ll_len(this); i++)
+        {
+            elementAux=ll_get(this, i);
+
+            indexAux=ll_indexOf(this2,elementAux);
+
+            if(indexAux==-1)
+            {
+                flagNoHallado = 1;
+            }
+            else if(indexAux!=i)
+            {
+                flagDiferente = 1;
+            }
+        }
+    }
+
+    if(flagDiferente)
+    {
+        returnAux=0;
+    }
+
+    if(flagNoHallado)
+    {
+        returnAux=-1;
+    }
 
     return returnAux;
 }

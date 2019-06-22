@@ -65,5 +65,38 @@ void inicializarPrestamos(ePrestamo vec[], int tam);
 void modificarSocio(eSocio vec[], int tam);
 void listarPrestamosSocios(eSocio socios[], eLibro libros[], ePrestamo prestamos[], int cantSocios, int cantLibros);
 void obtenerAutor(eAutor autores[], int tamAutores, int idAutor, char autorNA[]);
+// 18 -----------------------------------------------------------
+int menuInformes();
+// 19 -----------------------------------------------------------
+int cantidadPrestamos(ePrestamo prestamos[], int tamP);
+// 20 -----------------------------------------------------------
+int ordenarPrestamos(ePrestamo prestamos[], int tamP);
+// 21 -----------------------------------------------------------
+int mostrarPrestamos(ePrestamo prestamos[], int tamP);
+// 22 -----------------------------------------------------------
+float promedioPrestamos(ePrestamo prestamos[], int tamP);
+// 23 -----------------------------------------------------------
+int verificarPromedioPrestamos(ePrestamo prestamos[], int tamP);
+// 24 -----------------------------------------------------------
+void listarSociosPorLibro(eAutor autores[], eSocio socios[], eLibro libros[], ePrestamo prestamos[], int tamAutores, int tamSocios, int tamLibros, int tamPrestamos);
+// 25 -----------------------------------------------------------
+void listarLibrosPorSocio(eAutor autores[], eSocio socios[], eLibro libros[], ePrestamo prestamos[], int tamAutores, int tamSocios, int tamLibros, int tamPrestamos);
+// 26 -----------------------------------------------------------
+void listarLibrosPorFecha(eAutor autores[], eLibro libros[], ePrestamo prestamos[], int tamAutores, int tamLibros, int tamPrestamos);
+// 27 -----------------------------------------------------------
+void listarSociosPorFecha(eSocio socios[], ePrestamo prestamos[], int tamSocios, int tamPrestamos);
+// 28 -----------------------------------------------------------
+void ordenarLibrosTituloDescendente(eLibro libros[],int tamLibros);
+// 29 -----------------------------------------------------------
+void ordenarSociosApellido(eSocio socios[], int tamSocios);
+// 30 -----------------------------------------------------------
+void mostrarSocios(eSocio socios[], int tamSocios);
+// 31 -----------------------------------------------------------
+void mostrarLibros(eLibro libros[], eAutor autores[], int tamLibros, int tamAutores);
+// 32 -----------------------------------------------------------
+void contarPrestamosLibros(eLibro libros[], eAutor autores[], ePrestamo prestamos[], int tamLibros, int tamAutores,int tamPrestamos);
+// 33 -----------------------------------------------------------
+void contarPrestamosSocios(eSocio socios[], ePrestamo prestamos[],int tamSocios, int tamPrestamos);
+
 
 #endif // SOCIO_H_INCLUDED

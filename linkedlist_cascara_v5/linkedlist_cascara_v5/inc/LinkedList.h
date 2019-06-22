@@ -35,6 +35,12 @@ struct LinkedList
 
 //Publicas
 LinkedList* ll_newLinkedList(void);
+/** \brief Retorna la cantidad de elementos de la lista
+ *
+ * \param this LinkedList* Puntero a la lista
+ * \return int Retorna (-1) si el puntero es NULL o la cantidad de elementos de la lista
+ *
+ */
 int ll_len(LinkedList* this);
 Node* test_getNode(LinkedList* this, int nodeIndex);
 int test_addNode(LinkedList* this, int nodeIndex,void* pElement);
