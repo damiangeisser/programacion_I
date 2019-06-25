@@ -37,7 +37,7 @@ void mostrarSocio(eSocio socio)
     //printf("%.3d %-8s\t%-8s %c %s\t%s\t%02d/%02d/%d\n", socio.idS, socio.apellido, socio.nombre, socio.sexo, socio.telefono, socio.email, socio.fechaAlta.dia, socio.fechaAlta.mes, socio.fechaAlta.anio);
 
 }
-
+// 3 -----------------------------------------------------------
 void obtenerAutor(eAutor autores[], int tamAutores, int idAutor, char autorNA[])
 {
     for(int i=0; i<tamAutores; i++)
@@ -51,7 +51,7 @@ void obtenerAutor(eAutor autores[], int tamAutores, int idAutor, char autorNA[])
         }
     }
 }
-// 3 -----------------------------------------------------------
+// 4 -----------------------------------------------------------
 void mostrarLibro(eAutor autores[], int tamAutores, eLibro libro)
 {
     char autorNA[80];
@@ -61,14 +61,14 @@ void mostrarLibro(eAutor autores[], int tamAutores, eLibro libro)
     printf("%d\t%s\t%s\n", libro.idL, libro.titulo, autorNA);
 
 }
-// 4 -----------------------------------------------------------
+// 5 -----------------------------------------------------------
 void mostrarAutor(eAutor autor)
 {
 
     printf("%d\t%s\t%s\n", autor.idA, autor.apellidoA, autor.nombreA);
 
 }
-// 5 -----------------------------------------------------------
+// 6 -----------------------------------------------------------
 void mostrarSociosOrdenados(eSocio vec[], int tam)
 {
     int contador = 0;
@@ -110,7 +110,7 @@ void mostrarSociosOrdenados(eSocio vec[], int tam)
         printf("\n(!) No hay socios que mostrar (!)\n");
     }
 }
-// 6 -----------------------------------------------------------
+// 7 -----------------------------------------------------------
 void mostrarLibrosOrdenados(eAutor autores[], int tamAutores, eLibro vec[], int tam)
 {
     int contador = 0;
@@ -146,7 +146,7 @@ void mostrarLibrosOrdenados(eAutor autores[], int tamAutores, eLibro vec[], int 
         printf("\n(!) No hay libros que mostrar (!)\n");
     }
 }
-// 7 -----------------------------------------------------------
+// 8 -----------------------------------------------------------
 void mostrarAutoresOrdenados(eAutor vec[], int tam)
 {
     int contador = 0;
@@ -188,7 +188,7 @@ void mostrarAutoresOrdenados(eAutor vec[], int tam)
         printf("\n(!) No hay autores que mostrar (!)\n");
     }
 }
-// 8 -----------------------------------------------------------
+// 9 -----------------------------------------------------------
 int buscarLibre(eSocio vec[], int tam)
 {
 
@@ -205,7 +205,7 @@ int buscarLibre(eSocio vec[], int tam)
 
     return indice;
 }
-// 9 -----------------------------------------------------------
+// 10 -----------------------------------------------------------
 int buscarPLibre(ePrestamo vec[], int tam)
 {
 
@@ -222,7 +222,7 @@ int buscarPLibre(ePrestamo vec[], int tam)
 
     return indice;
 }
-// 10 -----------------------------------------------------------
+// 11 -----------------------------------------------------------
 void inicializarSocios(eSocio vec[], int tam)
 {
     for(int i=0; i < tam; i++)
@@ -230,7 +230,7 @@ void inicializarSocios(eSocio vec[], int tam)
         vec[i].ocupado = 0;
     }
 }
-// 11 -----------------------------------------------------------
+// 12 -----------------------------------------------------------
 void inicializarPrestamos(ePrestamo vec[], int tam)
 {
     for(int i=0; i < tam; i++)
@@ -238,7 +238,7 @@ void inicializarPrestamos(ePrestamo vec[], int tam)
         vec[i].ocupado = 0;
     }
 }
-// 12 -----------------------------------------------------------
+// 13 -----------------------------------------------------------
 int altaSocio(eSocio vec[], int tam, int idMain)
 {
     int indice;
@@ -279,10 +279,9 @@ int altaSocio(eSocio vec[], int tam, int idMain)
 
     return altaOk;
 }
-// 13 -----------------------------------------------------------
+// 14 -----------------------------------------------------------
 int buscarSocio(eSocio vec[], int tam, int id)
 {
-
     int indice = -1;
 
     for(int i=0; i < tam; i++)
@@ -296,7 +295,7 @@ int buscarSocio(eSocio vec[], int tam, int id)
 
     return indice;
 }
-// 14 -----------------------------------------------------------
+// 15 -----------------------------------------------------------
 void bajaSocio(eSocio vec[], int tam)
 {
     int id;
@@ -323,7 +322,7 @@ void bajaSocio(eSocio vec[], int tam)
         }
     }
 }
-// 15 -----------------------------------------------------------
+// 16 -----------------------------------------------------------
 int altaPrestamos(eAutor autores[], int tamAutores, ePrestamo vecP[], int tamP, eSocio vecS[], int tamS, eLibro vecL[], int tamL, int idPMain, int idSMain)
 {
     int indice;
@@ -358,7 +357,7 @@ int altaPrestamos(eAutor autores[], int tamAutores, ePrestamo vecP[], int tamP, 
 
     return altaOk;
 }
-// 16 -----------------------------------------------------------
+// 17 -----------------------------------------------------------
 void modificarSocio(eSocio vec[], int tam)
 {
     int id;
@@ -441,32 +440,6 @@ void modificarSocio(eSocio vec[], int tam)
         }
     }
 }
-// 17 -----------------------------------------------------------
-void listarPrestamosSocios(eSocio socios[], eLibro libros[], ePrestamo prestamos[], int cantSocios, int cantLibros)
-{
-    system("cls");
-    printf("\n--- Listado de Prestamos ---\n\n");
-    for(int i = 0; i < cantLibros; i++)
-    {
-        if(libros[i].ocupado)
-        {
-            for(int j = 0; j<(cantSocios * cantLibros); j++ )
-            {
-                if((prestamos[j].ocupado) && (libros[i].idL == prestamos[j].idLibro))
-                {
-                    for(int k = 0; k < cantSocios; k++ )
-                    {
-                        if((socios[k].ocupado) && (prestamos[j].idSocio == socios[k].idS))
-                        {
-                            printf("%d %s %s", socios[k].idS, socios[k].nombre, socios[i].apellido,libros[i].titulo,prestamos[j].fechaPrestamo);
-                        }
-                    }//Cierre for(int k = 0; k < cantSocios; k++ )
-                }//Cierre if((prestamos[j].ocupado) && (libros[i].idL == prestamos[j].idLibro))
-            }//Cierre 2do For
-        }//Cierre if(libros[i].ocupado)
-    }//Cierre 1er For
-}
-
 // 18 -----------------------------------------------------------
 int menuInformes()
 {
@@ -540,7 +513,6 @@ int mostrarPrestamos(ePrestamo prestamos[], int tamP)
     }
     return 1;
 }
-
 // 22 -----------------------------------------------------------
 float promedioPrestamos(ePrestamo prestamos[], int tamP)
 {
@@ -642,7 +614,6 @@ void listarSociosPorLibro(eAutor autores[], eSocio socios[], eLibro libros[], eP
         printf("\n(!) No se han hallado prestamos de ese libro (!)\n");
     }
 }
-
 // 25 -----------------------------------------------------------
 void listarLibrosPorSocio(eAutor autores[], eSocio socios[], eLibro libros[], ePrestamo prestamos[], int tamAutores, int tamSocios, int tamLibros, int tamPrestamos)
 {
@@ -681,7 +652,7 @@ void listarLibrosPorFecha(eAutor autores[], eLibro libros[], ePrestamo prestamos
     eFecha fechaAux;
     int flagOk = 0;
 
-    getDate(&fechaAux.anio,&fechaAux.mes,&fechaAux.dia,"prestamo",2000,2020);
+    getDate(&fechaAux.anio,&fechaAux.mes,&fechaAux.dia,"prestamo:",2000,2020);
 
     system("cls");
     printf("\n--- Libros solicitados el %d/%d/%d ---\n\n",fechaAux.dia,fechaAux.mes,fechaAux.anio);
@@ -711,10 +682,10 @@ void listarSociosPorFecha(eSocio socios[], ePrestamo prestamos[], int tamSocios,
     eFecha fechaAux;
     int flagOk = 0;
 
-    getDate(&fechaAux.anio,&fechaAux.mes,&fechaAux.dia,"prestamo",2000,2020);
+    getDate(&fechaAux.anio,&fechaAux.mes,&fechaAux.dia,"prestamo: ",2000,2020);
 
     system("cls");
-    printf("\n--- Libros solicitados el %d/%d/%d ---\n\n",fechaAux.dia,fechaAux.mes,fechaAux.anio);
+    printf("\n--- Socios que solicitaron libros el %d/%d/%d ---\n\n",fechaAux.dia,fechaAux.mes,fechaAux.anio);
     for(int i = 0; i <tamPrestamos; i++)
     {
         if((prestamos[i].ocupado) && (prestamos[i].fechaPrestamo.dia==fechaAux.dia && prestamos[i].fechaPrestamo.mes==fechaAux.mes && prestamos[i].fechaPrestamo.anio==fechaAux.anio))
@@ -791,7 +762,6 @@ void ordenarSociosApellido(eSocio socios[], int tamSocios)
         }
     }
 }
-
 // 30 -----------------------------------------------------------
 void mostrarSocios(eSocio socios[], int tamSocios)
 {
@@ -873,6 +843,7 @@ void contarPrestamosLibros(eLibro libros[], eAutor autores[], ePrestamo prestamo
         }
     }
 
+    if(vecesPrestado>0){
     printf("\nLos libros menos solicitados (con %d prestamos) son: \n",minimo);
 
     for(int i=0; i < tamLibros; i++)
@@ -894,6 +865,10 @@ void contarPrestamosLibros(eLibro libros[], eAutor autores[], ePrestamo prestamo
             mostrarLibro(autores, tamAutores, libros[i]);
         }
     }
+    }else{
+    printf("\n(!) No hay prestamos cargados en el sistema (!)\n");
+    }
+
 }
 // 33 -----------------------------------------------------------
 void contarPrestamosSocios(eSocio socios[], ePrestamo prestamos[],int tamSocios, int tamPrestamos)
@@ -928,6 +903,7 @@ void contarPrestamosSocios(eSocio socios[], ePrestamo prestamos[],int tamSocios,
         }
     }
 
+    if(solicitudes>0){
     printf("\nLos socios con mas solicitudes (con %d prestamos) son: \n",maximo);
 
     for(int i=0; i < tamSocios; i++)
@@ -948,5 +924,8 @@ void contarPrestamosSocios(eSocio socios[], ePrestamo prestamos[],int tamSocios,
         {
              mostrarSocio(socios[i]);
         }
+    }
+    }else{
+    printf("\n(!) No hay prestamos cargados en el sistema (!)\n");
     }
 }

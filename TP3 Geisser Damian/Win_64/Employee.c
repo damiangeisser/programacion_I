@@ -28,7 +28,6 @@ int employee_getId(Employee* this,int* id)
     return error;
 }
 
-
 int employee_setNombre(Employee* this,char* nombre)
 {
     int error = 1;
@@ -103,6 +102,7 @@ int employee_getSueldo(Employee* this,int* sueldo)
         *sueldo = this->sueldo;
         error = 0;
     }
+
     return error;
 }
 

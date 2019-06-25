@@ -7,10 +7,10 @@
 #include "input.h"
 #include "socio.h"
 
-#define TAM_AUT 5
-#define TAM_LIB 7
-#define TAM_SOC 10
-#define TAM_PRES 10
+#define TAM_AUT 100
+#define TAM_LIB 100
+#define TAM_SOC 100
+#define TAM_PRES 100
 
 int main()
 {
@@ -18,32 +18,35 @@ int main()
 
     eLibro listaLibros[TAM_LIB]= {{1001,"La llamada de Cthulhu",101,1},{1002,"Duna",103,1},{1003,"El mago de Terramar",104,1},{1004,"El aleph",105,1},{1005,"El mesias de Duna",103,1},{1006,"El libro de arena",105,1},{1007,"Elric de Melnibone",102,1}};
 
-    eSocio listaSocios[TAM_SOC]= {{1,"Juan","Perez",'M',"1523647825","jperez@gmail.com",{25,3,2015},1},
-        {2,"Maria","Juarez",'F',"1523659874","mjuarez@hotmail.com",{30,10,2015},1},
-        {3,"Alberto","Perez",'M',"1585423691","aperez@hotmail.com",{15,2,2018},1},
-        {4,"Carla","Gomez",'F',"1585359491","cgomez@gmail.com",{6,4,2019},1},
-        {5,"Dario","Schaf",'M',"1598319461","dschaf@gmail.com",{13,10,2018},1},
-    };
+// Inicio hardcoding ----------
+//
+//    eSocio listaSocios[TAM_SOC]= {{1,"Juan","Perez",'M',"1523647825","jperez@gmail.com",{25,3,2015},1},
+//        {2,"Maria","Juarez",'F',"1523659874","mjuarez@hotmail.com",{30,10,2015},1},
+//        {3,"Alberto","Perez",'M',"1585423691","aperez@hotmail.com",{15,2,2018},1},
+//        {4,"Carla","Gomez",'F',"1585359491","cgomez@gmail.com",{6,4,2019},1},
+//        {5,"Dario","Schaf",'M',"1598319461","dschaf@gmail.com",{13,10,2018},1},
+//    };
+//
+//    ePrestamo listaPrestamos[TAM_PRES]= {{1,1001,2,{15,3,2019},1},{2,1003,2,{20,3,2019},1},{3,1004,3,{15,3,2019},1},
+//        {4,1006,4,{22,3,2018},1},{5,1004,5,{22,3,2019},1},{6,1001,3,{15,4,2019},1},{7,1002,2,{20,3,2019},1},{8,1006,3,{15,8,2019},1},
+//        {9,1004,2,{18,3,2019},1},{10,1004,1,{15,8,2019},1}
+//    };
+// Fin hardcoding ----------
 
-    ePrestamo listaPrestamos[TAM_PRES]= {{1,1001,2,{15,3,2019},1},{2,1003,2,{20,3,2019},1},{3,1004,3,{15,3,2019},1},
-        {4,1006,4,{22,3,2018},1},{5,1004,5,{22,3,2019},1},{6,1001,3,{15,4,2019},1},{7,1002,2,{20,3,2019},1},{8,1006,3,{15,8,2019},1},
-        {9,1004,2,{18,3,2019},1},{10,1004,1,{15,8,2019},1}
-    };
-
-    //eSocio listaSocios[TAM_SOC];
-
-    //ePrestamo listaPrestamos[TAM_PRES];
+    eSocio listaSocios[TAM_SOC];// Comentar esta línea si se utiliza el harcoding.<-----
+    ePrestamo listaPrestamos[TAM_PRES];// Comentar esta línea si se utiliza el harcoding.<-----
 
     char exitChar='n';
     int banderaAlta;
     int banderaOrdenL = 0;
     int banderaOrdenS = 0;
-    //int idAutoIn=1;
-    int idAutoIn=3;
-    int idAutoInPrestamo=1;
+    int idAutoIn=1;// Comentar esta línea si se utiliza el harcoding.<-----
+    int idAutoInPrestamo=1;// Comentar esta línea si se utiliza el harcoding.<-----
+//    int idAutoIn=6;;// Descomentar esta línea si se utiliza el harcoding.<-----
+//    int idAutoInPrestamo=11;// Descomentar esta línea si se utiliza el harcoding.<-----
 
-    //inicializarSocios(listaSocios, TAM_SOC);
-    //inicializarPrestamos(listaPrestamos, TAM_PRES);
+    inicializarSocios(listaSocios, TAM_SOC);// Comentar esta línea si se utiliza el harcoding.<-----
+    inicializarPrestamos(listaPrestamos, TAM_PRES);// Comentar esta línea si se utiliza el harcoding.<-----
 
     do
     {
@@ -99,12 +102,26 @@ int main()
                 switch(menuInformes())
                 {
                 case 1:
-                    printf("\nEl total de prestamos es: %d\n",cantidadPrestamos(listaPrestamos, TAM_PRES));
-                    printf("\nEl promedio diario de prestamos es: %.2f\n\n",promedioPrestamos(listaPrestamos, TAM_PRES));
+                    if(idAutoIn>1)
+                    {
+                        printf("\nEl total de prestamos es: %d\n",cantidadPrestamos(listaPrestamos, TAM_PRES));
+                        printf("\nEl promedio diario de prestamos es: %.2f\n\n",promedioPrestamos(listaPrestamos, TAM_PRES));
+                    }
+                    else
+                    {
+                        printf("\n(!) No hay prestamos cargados en el sistema (!)\n");
+                    }
                     system("pause");
                     break;
                 case 2:
-                    printf("\nEl numero de dias que no alcanzan el promedio de prestamos es: %d\n\n",verificarPromedioPrestamos(listaPrestamos, TAM_PRES));
+                    if(idAutoIn>1)
+                    {
+                        printf("\nEl numero de dias que no alcanzan el promedio de prestamos es: %d\n\n",verificarPromedioPrestamos(listaPrestamos, TAM_PRES));
+                    }
+                    else
+                    {
+                        printf("\n(!) No hay prestamos cargados en el sistema (!)\n");
+                    }
                     system("pause");
                     break;
                 case 3:
