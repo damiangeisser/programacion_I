@@ -4608,3 +4608,243 @@
 
 1561039472 e:\estudio\programación\utn\programación i\programacion_i\linkedlist_cascara_v5\linkedlist_cascara_v5\testing\inc\main_test.h
 
+1561039472 source:e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\src\addnodetest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1561039472 e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\utest.h
+
+1561515326 e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\inc\linkedlist.h
+
+1561039472 e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\inc\employee.h
+
+1561039472 source:e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\src\addtest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1561039472 source:e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\src\cleartest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1561039472 source:e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\src\clonetest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1561039472 source:e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\src\containsalltest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1561039472 source:e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\src\containstest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1561039472 source:e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\src\deletelinkedlisttest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1561039472 source:e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\src\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../inc/Employee.h"
+
+1561039472 source:e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\src\getnodetest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1561039472 source:e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\src\gettest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1561039472 source:e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\src\indexoftest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1561039472 source:e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\src\isemptytest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1561039472 source:e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\src\lentest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1561039472 source:e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\src\main_test.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	"../inc/newTest.h"
+	"../inc/addTest.h"
+	"../inc/getNodeTest.h"
+	"../inc/addNodeTest.h"
+	"../inc/deleteLinkedListTest.h"
+	"../inc/lenTest.h"
+	"../inc/getTest.h"
+	"../inc/containsTest.h"
+	"../inc/setTest.h"
+	"../inc/removeTest.h"
+	"../inc/clearTest.h"
+	"../inc/cloneTest.h"
+	"../inc/pushTest.h"
+	"../inc/indexOfTest.h"
+	"../inc/isEmptyTest.h"
+	"../inc/popTest.h"
+	"../inc/subListTest.h"
+	"../inc/containsAllTest.h"
+	"../inc/sortTest.h"
+
+1561039472 e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\inc\newtest.h
+
+1561039472 e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\inc\addtest.h
+
+1561039472 e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\inc\getnodetest.h
+
+1561039472 e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\inc\addnodetest.h
+
+1561039472 e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\inc\deletelinkedlisttest.h
+
+1561039472 e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\inc\lentest.h
+
+1561039472 e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\inc\gettest.h
+
+1561039472 e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\inc\containstest.h
+
+1561039472 e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\inc\settest.h
+
+1561039472 e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\inc\removetest.h
+
+1561039472 e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\inc\cleartest.h
+
+1561039472 e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\inc\clonetest.h
+
+1561039472 e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\inc\pushtest.h
+
+1561039472 e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\inc\indexoftest.h
+
+1561039472 e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\inc\isemptytest.h
+
+1561039472 e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\inc\poptest.h
+
+1561039472 e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\inc\sublisttest.h
+
+1561039472 e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\inc\containsalltest.h
+
+1561039472 e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\inc\sorttest.h
+
+1561039472 source:e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\src\newtest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+
+1561039472 source:e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\src\poptest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1561039472 source:e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\src\pushtest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1561039472 source:e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\src\removetest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1561039472 source:e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\src\settest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1561039472 source:e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\src\sorttest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1561039472 source:e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\src\sublisttest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1561039472 source:e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\utest.c
+	"utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1561239987 source:e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\src\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../testing/inc/main_test.h"
+	"../inc/LinkedList.h"
+
+1561039472 e:\estudio\programación\utn\programación i\programacion_i\linkedlist_geisser\testing\inc\main_test.h
+
